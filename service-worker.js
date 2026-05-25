@@ -1,4 +1,4 @@
-const CACHE_NAME = "shapesprout-studio-v2-fixed-icons";
+const CACHE_NAME = "shapesprout-studio-blueprint-v4";
 const APP_SHELL = [
   "./",
   "./index.html",

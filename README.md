@@ -25,7 +25,7 @@ social-preview.png
 ## Features
 
 - Prompt generator for object characters, foods, shapes, blobs, icons, and logos
-- Blueprint-style construction steps
+- Shape-aware blueprint diagrams and construction steps
 - Shape Gym warmup drills
 - Stash with local saved prompts and completion status
 - Export/import stash as JSON
@@ -34,6 +34,15 @@ social-preview.png
 - Offline app shell after first successful load
 - iPad safe-area layout and touch-friendly controls
 - Apple touch icon and PWA manifest icons
+
+
+## Blueprint fix in this build
+
+The Blueprint View is now **shape-aware**. It no longer gives the same generic bean-body diagram for every prompt. The generated mission carries a subject-specific construction profile, so a strawberry uses a berry/leaf/seed plan, a mug uses cup/handle/steam shapes, toast uses an arched slice/crust plan, boba uses cup/lid/straw/pearls, and logo/icon prompts use a symbol-container simplification plan.
+
+The app also shows the subject shape recipe directly in the prompt card:
+`base construction → shape chain → drawing order → icon/sticker simplification`.
+
 
 ## Local testing
 

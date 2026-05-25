@@ -55,7 +55,7 @@
         <div class="section-heading">
           <p class="eyebrow">Choose → generate → draw in Procreate</p>
           <h2>Prompt Forge</h2>
-          <p>Pick a subject family and a skill goal. ShapeSprout will build a clear beginner mission with construction steps.</p>
+          <p>Pick a subject family and a skill goal. ShapeSprout will build a clear beginner mission with subject-specific construction steps.</p>
         </div>
 
         <form class="control-grid" id="promptForm">
@@ -122,35 +122,19 @@
 
       <section class="panel" data-panel="blueprint" hidden>
         <div class="section-heading">
-          <p class="eyebrow">Construction recipe</p>
+          <p class="eyebrow">Shape-aware construction</p>
           <h2>Blueprint View</h2>
-          <p>Use this beside Procreate. Start simple, then redraw with clearer silhouette and personality.</p>
+          <p>This now changes to match the actual thing you are drawing. A strawberry gets a berry blueprint, a mug gets a handle blueprint, a logo gets a symbol-container blueprint.</p>
         </div>
         <div class="blueprint-layout">
-          <div class="blueprint-card" aria-label="Shape construction diagram">
-            <svg viewBox="0 0 400 320" role="img" aria-labelledby="svgTitle svgDesc">
-              <title id="svgTitle">Cute object character construction guide</title>
-              <desc id="svgDesc">A simple mascot built from a bean body, circular face area, two dot eyes, and a pencil-like prop.</desc>
-              <defs>
-                <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-                  <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(79, 119, 145, .18)" stroke-width="1"/>
-                </pattern>
-              </defs>
-              <rect width="400" height="320" rx="28" fill="url(#grid)"/>
-              <ellipse cx="198" cy="176" rx="90" ry="112" fill="rgba(142,172,142,.25)" stroke="#4F778F" stroke-width="3" stroke-dasharray="9 9"/>
-              <circle cx="168" cy="152" r="10" fill="#2D2422"/>
-              <circle cx="230" cy="152" r="10" fill="#2D2422"/>
-              <path d="M184 182 Q200 200 218 182" fill="none" stroke="#2D2422" stroke-width="7" stroke-linecap="round"/>
-              <path d="M142 230 Q196 266 260 230" fill="none" stroke="#FFB299" stroke-width="8" stroke-linecap="round"/>
-              <path d="M110 72 L156 42 L184 86" fill="none" stroke="#FFD97D" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="108" cy="72" r="10" fill="#FFD97D"/>
-              <circle cx="184" cy="86" r="10" fill="#FFD97D"/>
-              <text x="32" y="42" class="svg-label">01 bean body</text>
-              <text x="260" y="82" class="svg-label">02 face low</text>
-              <text x="38" y="292" class="svg-label">03 prop = personality</text>
-            </svg>
+          <div class="blueprint-card" id="blueprintDiagram" aria-label="Shape-aware construction diagram"></div>
+          <div class="blueprint-notes">
+            <h3>Base construction</h3>
+            <p id="blueprintBase">friendly blob silhouette</p>
+            <div class="shape-chain" id="blueprintShapes"></div>
+            <h3>Drawing order</h3>
+            <ol class="step-list" id="blueprintSteps"></ol>
           </div>
-          <ol class="step-list" id="blueprintSteps"></ol>
         </div>
       </section>
 

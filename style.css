@@ -413,6 +413,65 @@ h3 {
   text-transform: uppercase;
 }
 
+
+.subject-recipe,
+.blueprint-notes {
+  border: 1px solid rgba(79, 119, 145, 0.16);
+  background: rgba(255, 255, 255, 0.54);
+  border-radius: 22px;
+  padding: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.subject-recipe h4,
+.blueprint-notes h3 {
+  margin: 0 0 var(--space-2);
+}
+
+.subject-recipe p,
+.blueprint-notes p {
+  margin-bottom: var(--space-3);
+}
+
+.shape-chain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.shape-chain span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  background: rgba(255, 217, 125, 0.38);
+  border: 1px solid rgba(79, 119, 145, 0.18);
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 0.86rem;
+}
+
+.blueprint-notes {
+  margin-top: 0;
+}
+
+.blueprint-notes .step-list {
+  margin-top: var(--space-3);
+}
+
+@media (min-width: 880px) {
+  .blueprint-layout {
+    grid-template-columns: minmax(320px, 1.05fr) minmax(260px, 0.95fr);
+    align-items: start;
+  }
+
+  .blueprint-card {
+    position: sticky;
+    top: max(24px, env(safe-area-inset-top));
+  }
+}
+
 .drill-grid,
 .stash-list {
   display: grid;
