@@ -1,4 +1,4 @@
-const CACHE_NAME = "shapesprout-studio-v1";
+const CACHE_NAME = "shapesprout-studio-v2-fixed-icons";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -7,9 +7,13 @@ const APP_SHELL = [
   "./manifest.webmanifest",
   "./icon-192.png",
   "./icon-512.png",
+  "./icon-maskable-192.png",
+  "./icon-maskable-512.png",
   "./apple-touch-icon.png",
+  "./favicon.ico",
   "./favicon-32.png",
   "./favicon-16.png",
+  "./icon-master-1024.png",
   "./social-preview.png"
 ];
 
@@ -38,10 +42,13 @@ self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request).then(cached => {
       if (cached) return cached;
+
       return fetch(event.request)
         .then(response => {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+          if (response && response.status === 200) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+          }
           return response;
         })
         .catch(() => caches.match("./index.html"));

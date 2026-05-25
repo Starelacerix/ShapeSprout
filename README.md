@@ -12,8 +12,11 @@ manifest.webmanifest
 service-worker.js
 icon-192.png
 icon-512.png
+icon-maskable-192.png
+icon-maskable-512.png
 apple-touch-icon.png
 icon-master-1024.png
+favicon.ico
 favicon-32.png
 favicon-16.png
 social-preview.png
@@ -84,3 +87,8 @@ http://localhost:8080
 - Saved prompts are stored locally on the device using `localStorage`.
 - Use **Export stash** before clearing browser data or moving devices.
 - The mini canvas is for thumbnails only; Procreate remains the main drawing tool.
+
+
+## Icon fix notes
+
+All icon files are stored at the project root. The manifest uses `./icon-192.png`, `./icon-512.png`, and separate maskable icons. `index.html` links `./apple-touch-icon.png`, `./favicon.ico`, and PNG favicons. The service worker cache name was bumped to force browsers to refresh old cached icon paths.
