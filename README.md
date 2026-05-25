@@ -10,15 +10,13 @@ style.css
 app.js
 manifest.webmanifest
 service-worker.js
-icons/
-  icon-192.png
-  icon-512.png
-  apple-touch-icon.png
-  icon-master-1024.png
-  favicon-32.png
-  favicon-16.png
-assets/
-  social-preview.png
+icon-192.png
+icon-512.png
+apple-touch-icon.png
+icon-master-1024.png
+favicon-32.png
+favicon-16.png
+social-preview.png
 ```
 
 ## Features
