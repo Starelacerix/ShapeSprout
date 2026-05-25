@@ -1,8 +1,9 @@
-const CACHE_NAME = "shapesprout-studio-blueprint-v4";
+const CACHE_NAME = "shapesprout-studio-expanded-learning-v8";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./style.css",
+  "./rough-lite.js",
   "./app.js",
   "./manifest.webmanifest",
   "./icon-192.png",

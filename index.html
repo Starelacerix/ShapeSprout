@@ -21,7 +21,7 @@
   <meta property="og:description" content="A tiny drawing coach and prompt forge for cute characters, foods, shapes, blobs, logos, and icons." />
   <meta property="og:image" content="./social-preview.png" />
 
-  <title>ShapeSprout Studio</title>
+  <title>ShapeSprout Studio v8</title>
 </head>
 <body>
   <a class="skip-link" href="#workspace">Skip to drawing prompts</a>
@@ -33,7 +33,8 @@
         <div>
           <p class="eyebrow">Procreate sidekick · beginner drawing lab</p>
           <h1>ShapeSprout Studio</h1>
-          <p class="subtitle">Generate tiny drawing missions for object characters, food mascots, blobs, logos, and icons.</p>
+          <p class="subtitle">Generate tiny drawing missions for object characters, food mascots, blobs, logos, icons, badges, mascots, nature sprites, and lettering marks.</p>
+          <p class="version-badge">Expansion v8 loaded · 8 subject families · 25 vibes · 27 skill focuses</p>
         </div>
       </div>
       <div class="hero-actions" aria-label="App status and actions">
@@ -65,8 +66,18 @@
               <option value="objects">Objects</option>
               <option value="foods">Foods</option>
               <option value="shapes">Shapes & blobs</option>
-              <option value="icons">Logos & icons</option>
+              <option value="icons">Logos & app icons</option>
+              <option value="badges">Badges, seals & patches</option>
+              <option value="mascots">Mascot characters</option>
+              <option value="nature">Nature sprites</option>
+              <option value="lettering">Letters & word marks</option>
               <option value="mixed">Surprise mix</option>
+            </select>
+          </label>
+          <label>
+            Exact subject
+            <select id="subjectChoice">
+              <option value="random">Random from family</option>
             </select>
           </label>
           <label>
@@ -77,16 +88,74 @@
               <option value="silly">Silly</option>
               <option value="magical">Magical</option>
               <option value="bold">Bold icon</option>
+              <option value="cozy">Cozy</option>
+              <option value="spooky">Spooky-cute</option>
+              <option value="retro">Retro mascot</option>
+              <option value="kawaii">Kawaii sticker</option>
+              <option value="minimal">Minimal logo</option>
+              <option value="sporty">Sporty badge</option>
+              <option value="fancy">Fancy boutique</option>
+              <option value="playful">Playful toy</option>
+              <option value="chunky">Chunky sticker</option>
+              <option value="calm">Calm minimal</option>
+              <option value="weird">Weird-cute</option>
+              <option value="cottagecore">Cottagecore</option>
+              <option value="celestial">Dreamy celestial</option>
+              <option value="heroic">Heroic badge</option>
+              <option value="ocean">Ocean cute</option>
+              <option value="robotic">Cute robot</option>
+              <option value="gothic">Soft goth</option>
+              <option value="candy">Candy shop</option>
+              <option value="editorial">Editorial clean</option>
+              <option value="handmade">Handmade stamp</option>
             </select>
           </label>
           <label>
             Skill focus
             <select id="skillFocus">
               <option value="simple-shapes">Simple shapes</option>
+              <option value="construction">Construction breakdown</option>
+              <option value="object-readability">Object readability</option>
               <option value="faces">Cute faces</option>
+              <option value="proportion">Cute proportions</option>
               <option value="silhouette">Strong silhouette</option>
-              <option value="logo">Logo simplification</option>
+              <option value="pose-gesture">Pose & gesture</option>
               <option value="expression">Expression & pose</option>
+              <option value="texture">Beginner texture</option>
+              <option value="texture-restraint">Texture restraint</option>
+              <option value="line-confidence">Line confidence</option>
+              <option value="palette">Limited palette</option>
+              <option value="color-value">Color/value read</option>
+              <option value="logo">Logo simplification</option>
+              <option value="small-size-readability">Small-size readability</option>
+              <option value="negative-space">Negative space</option>
+              <option value="badge-layout">Badge layout</option>
+              <option value="container-hierarchy">Container hierarchy</option>
+              <option value="sticker-composition">Sticker composition</option>
+              <option value="variation">Three variations</option>
+              <option value="logo-family">Logo family</option>
+              <option value="motif-building">Motif building</option>
+              <option value="memory-mode">Memory mode</option>
+              <option value="redraw-ladder">Redraw ladder</option>
+              <option value="procreate-layers">Procreate layers</option>
+              <option value="critique">Self critique</option>
+              <option value="shape-vocabulary">Shape vocabulary</option>
+            </select>
+          </label>
+          <label>
+            Learning path
+            <select id="learningPath">
+              <option value="guided-session">Guided session</option>
+              <option value="daily-practice">Daily practice</option>
+              <option value="procreate-sidekick">Procreate sidekick</option>
+              <option value="logo-lab">Logo + icon lab</option>
+              <option value="character-builder">Character builder</option>
+              <option value="redraw-coach">Redraw coach</option>
+              <option value="badge-school">Badge school</option>
+              <option value="shape-vocabulary-lab">Shape vocabulary lab</option>
+              <option value="three-way-translation">Three-way translation</option>
+              <option value="silhouette-bootcamp">Silhouette bootcamp</option>
+              <option value="style-slider-lab">Style slider lab</option>
             </select>
           </label>
           <label>
@@ -98,6 +167,17 @@
             </select>
           </label>
         </form>
+
+        <section class="expansion-card" aria-label="Expanded learning controls">
+          <h3>Expansion v8 controls</h3>
+          <p>This build adds visible new menu families plus more exact subjects, vibe styles, and skill focuses.</p>
+          <div class="mini-stat-grid">
+            <span><strong>8</strong> subject families</span>
+            <span><strong>200+</strong> exact subjects</span>
+            <span><strong>25</strong> vibes</span>
+            <span><strong>27</strong> skill focuses</span>
+          </div>
+        </section>
 
         <div class="action-row">
           <button class="primary-button" data-action="generate">Grow a prompt</button>
@@ -122,9 +202,9 @@
 
       <section class="panel" data-panel="blueprint" hidden>
         <div class="section-heading">
-          <p class="eyebrow">Shape-aware construction</p>
+          <p class="eyebrow">Shape-aware construction + lesson coach</p>
           <h2>Blueprint View</h2>
-          <p>This now changes to match the actual thing you are drawing. A strawberry gets a berry blueprint, a mug gets a handle blueprint, a logo gets a symbol-container blueprint.</p>
+          <p>The blueprint now combines subject, vibe, skill focus, and learning path so each prompt becomes a usable Procreate practice session.</p>
         </div>
         <div class="blueprint-layout">
           <div class="blueprint-card" id="blueprintDiagram" aria-label="Shape-aware construction diagram"></div>
@@ -134,6 +214,7 @@
             <div class="shape-chain" id="blueprintShapes"></div>
             <h3>Drawing order</h3>
             <ol class="step-list" id="blueprintSteps"></ol>
+            <div class="learning-coach-panel" id="learningCoach"></div>
           </div>
         </div>
       </section>
@@ -192,6 +273,7 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <script src="./rough-lite.js" defer></script>
   <script src="./app.js" defer></script>
 </body>
 </html>

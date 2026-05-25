@@ -649,3 +649,177 @@ h3 {
     scroll-behavior: auto !important;
   }
 }
+
+.blueprint-fallback {
+  min-height: 300px;
+  border-radius: 22px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: var(--space-5);
+  color: var(--blueprint);
+  background:
+    linear-gradient(rgba(79,119,145,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,119,145,.10) 1px, transparent 1px),
+    rgba(255,255,255,.72);
+  background-size: 24px 24px;
+}
+
+.blueprint-fallback h3 {
+  margin: 0 0 var(--space-2);
+}
+
+.blueprint-fallback p {
+  max-width: 34ch;
+  margin: 0;
+}
+
+
+/* v7 learning coach additions */
+.learning-dashboard {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.learning-callout,
+.learning-block,
+.variation-card,
+.learning-coach-panel article {
+  border: 1px solid rgba(79, 119, 145, 0.16);
+  background: rgba(255, 250, 242, 0.72);
+  border-radius: 22px;
+  padding: 1rem;
+  box-shadow: var(--small-shadow);
+}
+
+.learning-callout {
+  background:
+    linear-gradient(135deg, rgba(255, 217, 125, 0.38), rgba(182, 180, 233, 0.24)),
+    rgba(255, 250, 242, 0.8);
+}
+
+.learning-block h4,
+.variation-card strong,
+.learning-coach-panel h3,
+.learning-coach-panel h4 {
+  margin-top: 0;
+}
+
+.variation-grid,
+.coach-grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.variation-card p,
+.learning-block p,
+.learning-coach-panel p {
+  margin-bottom: 0;
+}
+
+.mistake-block {
+  border-color: rgba(255, 142, 114, 0.35);
+  background: rgba(255, 232, 213, 0.72);
+}
+
+.why-block {
+  border-color: rgba(142, 172, 142, 0.34);
+}
+
+.next-block {
+  border-color: rgba(182, 180, 233, 0.36);
+}
+
+.learning-coach-panel {
+  margin-top: var(--space-5);
+}
+
+@media (min-width: 780px) {
+  .variation-grid,
+  .coach-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.version-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0.55rem 0 0;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(79, 119, 145, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 250, 242, 0.68);
+  color: var(--sage-dark);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.expansion-card {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px dashed rgba(79, 119, 145, 0.36);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 242, 0.82), rgba(255, 217, 125, 0.18)),
+    rgba(255,255,255,0.5);
+}
+
+.expansion-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.expansion-card p {
+  margin-bottom: 0.75rem;
+  color: var(--muted);
+}
+
+.mini-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.mini-stat-grid span {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.65rem;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.62);
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.mini-stat-grid strong {
+  color: var(--ink);
+  font-size: 1.15rem;
+}
+
+.blueprint-notes .coach-grid article {
+  min-height: 120px;
+}
+
+.coach-goal {
+  margin-top: -0.25rem;
+  color: var(--muted);
+}
+
+.coach-grid-expanded {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.coach-grid-expanded article {
+  align-content: start;
+}
+
+.coach-grid-expanded ol,
+.coach-grid-expanded ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.coach-grid-expanded li + li {
+  margin-top: 0.28rem;
+}

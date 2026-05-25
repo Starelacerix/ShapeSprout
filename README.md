@@ -7,6 +7,7 @@ ShapeSprout Studio is a one-page installable PWA for beginner drawing practice. 
 ```txt
 index.html
 style.css
+rough-lite.js
 app.js
 manifest.webmanifest
 service-worker.js
@@ -43,6 +44,12 @@ The Blueprint View is now **shape-aware**. It no longer gives the same generic b
 The app also shows the subject shape recipe directly in the prompt card:
 `base construction → shape chain → drawing order → icon/sticker simplification`.
 
+
+## Blueprint renderer note
+
+The old blueprint panel used inline SVG strings. This build replaces that with `rough-lite.js`, a local root-level SVG sketch renderer. It draws subject-specific construction maps with DOM-created SVG elements instead of fragile injected markup, so missing or unusual subject recipes fall back to a readable bean/object/icon blueprint instead of going blank.
+
+No API key, backend, CDN, or external service is required.
 
 ## Local testing
 
@@ -101,3 +108,54 @@ http://localhost:8080
 ## Icon fix notes
 
 All icon files are stored at the project root. The manifest uses `./icon-192.png`, `./icon-512.png`, and separate maskable icons. `index.html` links `./apple-touch-icon.png`, `./favicon.ico`, and PNG favicons. The service worker cache name was bumped to force browsers to refresh old cached icon paths.
+
+
+## v6 — Specific Blueprint Grammar
+
+This build expands ShapeSprout from generic blueprint cards into a subject-aware construction system.
+
+### New controls
+- Exact subject picker with random-by-family fallback.
+- More vibes: cozy, spooky-cute, retro mascot, kawaii sticker, minimal logo, sporty badge, fancy boutique.
+- More skill focuses: construction breakdown, cute proportions, beginner texture, badge layout, negative space, limited palette, and three variations.
+
+### Blueprint improvements
+- Blueprints now combine subject + vibe + skill focus.
+- Badge/icon prompts no longer share one generic badge diagram.
+- Specific icon containers include shield, stamp, ribbon medal, patch, scalloped seal, coffee seal, book mark, crown badge, rocket patch, wave emblem, palette mark, cat icon, and leaf emblem.
+- Missing subjects fall back to family-specific recipes rather than blank panels.
+
+All files remain root-level for simple static deployment.
+
+
+## v7 — Learning Coach Upgrade
+
+This build turns ShapeSprout from a prompt generator into a more structured drawing practice companion.
+
+### Added
+- Learning path selector: Guided session, Daily practice, Procreate sidekick, Logo + icon lab, Character builder, Redraw coach.
+- New skill focuses: Memory mode, Redraw ladder, Procreate layers, Self critique, Shape vocabulary.
+- More subject options across objects, foods, blobs, shapes, icons, and badges.
+- More vibes: Playful toy, Chunky sticker, Calm minimal, Weird-cute.
+- Each mission now includes:
+  - 2-minute warmup
+  - Draw this three ways: character, icon, badge/sticker
+  - Why this works
+  - Common beginner mistake + fix
+  - Procreate layer plan
+  - Self-check checklist
+  - Next best exercise
+- Blueprint View now includes a Learning Coach panel so the diagram teaches the concept, not just the shape.
+
+The service worker cache was bumped to `shapesprout-studio-learning-coach-v7`.
+
+
+## Expansion v8 notes
+
+This build visibly expands the learning controls:
+- 8 subject families: objects, foods, shapes/blobs, logos/app icons, badges/seals/patches, mascots, nature sprites, and lettering marks.
+- 200+ exact subjects, including mascot roles, badge types, lettering marks, and nature sprites.
+- 25 vibe styles, including cottagecore, celestial, heroic, ocean cute, cute robot, soft goth, candy shop, editorial clean, and handmade stamp.
+- 27 skill focuses, including object readability, sticker composition, container hierarchy, line confidence, small-size readability, motif building, pose/gesture, texture restraint, color/value, and logo family.
+
+If a previous build appears, reload twice after deployment or clear site data so the updated service worker cache activates.

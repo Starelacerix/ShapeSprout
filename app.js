@@ -3,10 +3,62 @@
 const STORAGE_KEY = "shapesprout-studio-state-v1";
 
 const subjects = {
-  objects: ["mug", "pencil", "lamp", "chair", "paint tube", "cloud pillow", "tiny backpack", "houseplant pot", "mailbox", "teacup"],
-  foods: ["strawberry", "toast slice", "boba cup", "dumpling", "cupcake", "pickle", "mushroom", "croissant", "soup bowl", "lemon wedge"],
-  shapes: ["bean blob", "circle creature", "triangle buddy", "star mascot", "puddle ghost", "squircle pal", "jellybean", "wobbly cube", "moon blob", "tiny hill"],
-  icons: ["sun badge", "sprout logo", "moon app icon", "sparkle mark", "pencil badge", "heart shield", "cloud symbol", "mushroom sticker", "leaf emblem", "smile stamp"]
+  objects: [
+    "mug", "teacup", "pencil", "paint tube", "lamp", "chair", "cloud pillow", "tiny backpack",
+    "houseplant pot", "mailbox", "book stack", "watering can", "paintbrush", "camera", "sketchbook",
+    "key", "candle", "roller skate", "umbrella", "tiny house", "alarm clock", "teapot", "scissors",
+    "tiny suitcase", "desk fan", "paint jar", "music note speaker", "watering boot", "rubber stamp",
+    "jar of stars", "tiny radio", "paint roller", "thread spool", "lunchbox", "magnifying glass",
+    "lantern", "treasure chest", "keyboard key", "button jar", "pocket mirror", "glue stick"
+  ],
+  foods: [
+    "strawberry", "toast slice", "boba cup", "dumpling", "cupcake", "pickle", "mushroom",
+    "croissant", "soup bowl", "lemon wedge", "avocado half", "ramen bowl", "donut", "ice cream cone",
+    "taco", "pizza slice", "banana", "cherry pair", "egg character", "sushi roll", "cinnamon roll",
+    "pea pod", "waffle square", "melon slice", "milk carton", "macaron", "pretzel", "pancake stack",
+    "sandwich triangle", "berry tart", "hot cocoa mug", "fortune cookie", "onigiri", "carrot",
+    "watermelon slice", "popcorn bucket", "jelly jar", "cookie stack", "bagel", "tiny cake slice"
+  ],
+  shapes: [
+    "bean blob", "circle creature", "triangle buddy", "star mascot", "puddle ghost", "squircle pal",
+    "jellybean", "wobbly cube", "moon blob", "tiny hill", "capsule critter", "teardrop sprite",
+    "cloud blob", "diamond friend", "spiral snail", "flower blob", "rainbow arch", "rock buddy",
+    "pebble stack", "soft shield", "wavy ribbon", "droplet buddy", "blob family", "tiny monster shape",
+    "oval potato", "lumpy rectangle", "noodle squiggle", "stacked circles", "rounded hexagon",
+    "melted star", "puffy plus sign", "soft lightning bolt", "blob with ears", "tiny comet"
+  ],
+  icons: [
+    "sun badge", "sprout logo", "moon app icon", "sparkle mark", "pencil badge", "cloud symbol",
+    "mushroom sticker", "leaf emblem", "magic wand icon", "paint palette logo", "mountain badge",
+    "flower shop mark", "rain cloud icon", "monogram blob", "tiny app tile", "paw print icon",
+    "camera glyph", "music note logo", "book app icon", "brush tip mark", "garden app icon",
+    "tea leaf logo", "star map icon", "cozy home symbol", "palette app icon"
+  ],
+  badges: [
+    "heart shield", "smile stamp", "ribbon badge", "coffee shop logo", "book club mark", "garden badge",
+    "bakery seal", "rocket patch", "wave emblem", "crown badge", "donut badge", "sticker seal",
+    "star scout patch", "cat face icon", "sports pennant", "merit badge", "campfire patch",
+    "library seal", "flower award badge", "planet club badge", "paint club crest", "cute skull patch",
+    "rainbow club badge", "tiny bakery ribbon", "ocean rescue patch", "forest helper badge"
+  ],
+  mascots: [
+    "sock goblin", "button mouse", "teacup dragon", "sprout wizard", "toast knight", "mushroom librarian",
+    "cloud mail carrier", "pencil explorer", "pickle pirate", "lamp ghost", "star baker", "blob detective",
+    "boba astronaut", "chair monster", "donut fairy", "camera robot", "tiny house spirit", "book dragon",
+    "avocado gardener", "moon rabbit blob"
+  ],
+  nature: [
+    "leaf sprite", "acorn buddy", "flower pot character", "cloud seed", "sunflower face", "tiny cactus",
+    "moss rock", "rain drop", "moon moth", "snail shell icon", "butterfly badge", "pinecone mascot",
+    "sea shell mark", "wave creature", "berry bush", "little mushroom house", "starry leaf",
+    "mountain cloud badge", "pond lily", "bee sticker"
+  ],
+  lettering: [
+    "letter A character", "letter B badge", "letter C mascot", "initial monogram", "bubble word mark",
+    "rounded letter logo", "ribbon initial", "sticker word badge", "tiny shop sign", "single-letter app icon",
+    "script leaf mark", "blocky sports initial", "cute exclamation mark", "question mark mascot",
+    "ampersand sticker", "number 3 mascot", "number 7 badge"
+  ]
 };
 
 const personalities = {
@@ -14,15 +66,116 @@ const personalities = {
   sleepy: ["sleepy", "dreamy", "slow", "pillow-soft", "half-awake"],
   silly: ["goofy", "wobbly", "overexcited", "dramatic", "snack-obsessed"],
   magical: ["glowy", "mystic", "moonlit", "sparkly", "enchanted"],
-  bold: ["simple", "graphic", "confident", "badge-like", "iconic"]
+  bold: ["simple", "graphic", "confident", "badge-like", "iconic"],
+  cozy: ["warm", "cottage-soft", "friendly", "tea-time", "comforting"],
+  spooky: ["shy-spooky", "tiny-haunted", "glow-eyed", "friendly-goblin", "midnight-cute"],
+  retro: ["rubber-hose", "1950s diner", "vintage mascot", "rounded-retro", "poster-like"],
+  kawaii: ["blushy", "tiny", "squishy", "sticker-cute", "sparkle-eyed"],
+  minimal: ["clean", "balanced", "geometric", "reduced", "quiet"],
+  sporty: ["energetic", "patch-like", "team mascot", "bold", "motion-ready"],
+  fancy: ["boutique", "elegant", "ornamental", "polished", "delicate"],
+  playful: ["bouncy", "impish", "wiggly", "toy-like", "spark-charged"],
+  chunky: ["bold", "heavy-shape", "sticker-thick", "squashable", "poster-clear"],
+  calm: ["quiet", "balanced", "gentle", "simple", "peaceful"],
+  weird: ["oddball", "asymmetric", "strange-cute", "tiny-chaos", "surprising"],
+  cottagecore: ["garden-soft", "mossy", "storybook", "handmade", "warm"],
+  celestial: ["moon-dusted", "starry", "quiet-magic", "cosmic", "night-sky"],
+  heroic: ["brave", "upright", "emblem-ready", "bold-hearted", "champion-like"],
+  ocean: ["bubbly", "wave-soft", "shell-bright", "sea-sprayed", "floaty"],
+  robotic: ["tiny-robot", "beep-cute", "modular", "friendly-tech", "bolt-eyed"],
+  gothic: ["soft-goth", "velvet-dark", "cute-spooky", "ornate", "moonlit"],
+  candy: ["sugary", "bright", "sprinkle-happy", "gumdrop", "sweet-shop"],
+  editorial: ["clean-poster", "smart", "balanced", "magazine-like", "designed"],
+  handmade: ["wobbly", "stamp-like", "crafty", "imperfect", "warm"]
 };
 
 const shapeKits = {
-  "simple-shapes": ["one big oval", "two tiny circles", "one triangle accent", "one curved smile"],
-  faces: ["low-set eyes", "round cheeks", "tiny mouth", "one eyebrow or eyelid"],
-  silhouette: ["one huge readable body", "one strong prop", "no tiny details", "clear outside shape"],
-  logo: ["squircle container", "one central symbol", "two colors max", "bold negative space"],
-  expression: ["tilted body", "asymmetrical eyes", "one gesture arm", "one emotion prop"]
+  "simple-shapes": ["one big base shape", "one signature shape", "two tiny face marks", "one curved smile"],
+  faces: ["face zone map", "eye spacing", "cheek placement", "mouth/emotion test"],
+  silhouette: ["outer contour first", "signature part enlarged", "black-fill test", "tiny-size check"],
+  logo: ["container shape", "central symbol", "negative space", "two colors max"],
+  expression: ["body tilt", "eye variation", "gesture limb", "emotion prop"],
+  construction: ["base primitive", "secondary primitive", "guide axis", "detail order"],
+  proportion: ["head/body ratio", "low face zone", "tiny limbs", "oversized signature feature"],
+  texture: ["3–5 texture marks", "clear face zone", "edge detail", "pattern restraint"],
+  "badge-layout": ["container type", "inner symbol", "banner/ring", "clear border"],
+  "negative-space": ["cutout shape", "inside/outside balance", "one readable gap", "silhouette test"],
+  palette: ["2-color limit", "accent color", "value contrast", "no muddy detail"],
+  variation: ["round version", "tall version", "icon version", "weird version"],
+  "memory-mode": ["study", "hide", "draw from memory", "reveal and correct"],
+  "redraw-ladder": ["first draw", "silhouette redraw", "icon redraw", "vibe redraw"],
+  "procreate-layers": ["construction layer", "clean sketch", "flats", "texture", "small icon test"],
+  critique: ["silhouette", "shape clarity", "expression match", "tiny-size read"],
+  "shape-vocabulary": ["base primitive", "variation knobs", "best uses", "three prompts"],
+  "object-readability": ["function part", "largest surface", "face placement", "do not hide the object"],
+  "sticker-composition": ["white border plan", "tilt/gesture", "one prop", "readable contour"],
+  "container-hierarchy": ["outer container", "inner symbol", "secondary ribbon", "small-size order"],
+  "line-confidence": ["single clean contour", "fewer sketchy strokes", "smooth corners", "intentional line weight"],
+  "small-size-readability": ["16px squint test", "remove inner details", "increase silhouette contrast", "one focal symbol"],
+  "motif-building": ["repeat one shape", "create a family", "change scale", "keep one motif consistent"],
+  "pose-gesture": ["tilt axis", "weight direction", "limb rhythm", "emotion silhouette"],
+  "texture-restraint": ["texture cluster", "empty face zone", "edge-only detail", "stop after 5 marks"],
+  "color-value": ["dark/light read", "two-color version", "accent only", "no similar values"],
+  "logo-family": ["main mark", "badge version", "app icon version", "sticker version"]
+};
+
+
+const learningPaths = {
+  "guided-session": {
+    label: "Guided session",
+    goal: "A complete mini lesson: warmup, blueprint, draw, self-check, redraw.",
+    sequence: ["warmup", "main drawing", "small icon test", "self-check"]
+  },
+  "daily-practice": {
+    label: "Daily practice",
+    goal: "A short repeatable routine that builds drawing mileage.",
+    sequence: ["2-minute warmup", "one finished sketch", "one quick redraw"]
+  },
+  "procreate-sidekick": {
+    label: "Procreate sidekick",
+    goal: "Clear layer-by-layer instructions for drawing beside this app.",
+    sequence: ["construction layer", "clean sketch", "color flats", "texture pass", "tiny icon check"]
+  },
+  "logo-lab": {
+    label: "Logo + icon lab",
+    goal: "Translate a character idea into a clean symbol, badge, or app icon.",
+    sequence: ["container", "symbol", "negative space", "small-size test"]
+  },
+  "character-builder": {
+    label: "Character builder",
+    goal: "Turn objects, foods, shapes, and blobs into expressive mascots.",
+    sequence: ["silhouette", "face zone", "gesture", "prop", "personality"]
+  },
+  "redraw-coach": {
+    label: "Redraw coach",
+    goal: "Improve the same drawing through controlled iterations.",
+    sequence: ["first try", "silhouette fix", "expression fix", "icon simplification"]
+  },
+  "badge-school": {
+    label: "Badge school",
+    goal: "Learn why seals, shields, patches, ribbons, and stamps use different construction rules.",
+    sequence: ["outer container", "symbol hierarchy", "ribbon/border", "small-size check"]
+  },
+  "shape-vocabulary-lab": {
+    label: "Shape vocabulary lab",
+    goal: "Build a reusable library of beans, squircles, shields, arcs, blobs, and symbols.",
+    sequence: ["base shape", "variation knobs", "subject swap", "memory redraw"]
+  },
+  "three-way-translation": {
+    label: "Three-way translation",
+    goal: "Turn one subject into a character, an icon, and a badge/sticker.",
+    sequence: ["character version", "icon version", "badge version", "compare"]
+  },
+  "silhouette-bootcamp": {
+    label: "Silhouette bootcamp",
+    goal: "Make drawings readable before texture, color, or cute details.",
+    sequence: ["black fill", "remove detail", "exaggerate signature part", "tiny test"]
+  },
+  "style-slider-lab": {
+    label: "Style slider lab",
+    goal: "Practice changing one subject across cute, bold, weird, minimal, and fancy versions.",
+    sequence: ["same base", "change proportions", "change details", "compare vibes"]
+  }
 };
 
 const blueprintProfiles = {
@@ -232,28 +385,509 @@ const blueprintProfiles = {
   }
 };
 
-function getBlueprintProfile(subject, family, focus) {
-  if (blueprintProfiles[subject]) return blueprintProfiles[subject];
 
-  if (focus === "logo" || family === "icons") {
-    return {
-      base: "bold symbol inside a container",
-      shapes: ["outer squircle", "central symbol", "one accent cutout", "two-color palette"],
+const subjectBlueprintExtras = {
+  "teacup": {
+    base: "wide cup bowl with tiny foot and handle",
+    shapes: ["shallow oval rim", "rounded bowl", "tiny foot", "C-handle", "steam curl"],
+    steps: [
+      "Draw a wide oval rim first; this makes it read as a teacup, not a mug.",
+      "Hang a rounded bowl shape under the oval and add a tiny foot at the bottom.",
+      "Add a small C-handle on one side, thinner than a mug handle.",
+      "Keep the face on the open bowl area below the rim.",
+      "For the icon version, keep oval rim + bowl + handle + one steam curl."
+    ],
+    svg: "teacup"
+  },
+  "paint tube": {
+    base: "crimped tube body with angled cap",
+    shapes: ["squeezed rectangle", "crimp end", "angled cap", "paint stripe", "face zone"],
+    steps: [
+      "Start with a soft rectangle that bends slightly like a squeezed tube.",
+      "Add the crimped sealed end as a small folded rectangle.",
+      "Draw a chunky cap on the opposite side before any face details.",
+      "Use one paint stripe or label band as the signature detail.",
+      "For the icon version, exaggerate the cap and crimp; remove label text."
+    ],
+    svg: "paint-tube"
+  },
+  "tiny backpack": {
+    base: "rounded bag body with flap and straps",
+    shapes: ["arched bag body", "front pocket", "top flap", "side straps", "low face"],
+    steps: [
+      "Draw an arched rectangle for the backpack body.",
+      "Add a smaller front pocket that follows the same curve.",
+      "Use two side strap curves so it reads as wearable.",
+      "Place the face on the large front pocket or body, not across seams.",
+      "For the icon version, keep body + pocket + straps only."
+    ],
+    svg: "backpack"
+  },
+  "houseplant pot": {
+    base: "trapezoid pot plus leaf cluster",
+    shapes: ["pot trapezoid", "soil oval", "3 leaf shapes", "face on pot"],
+    steps: [
+      "Draw the pot as a trapezoid, wider at the top.",
+      "Add a soil oval along the top rim.",
+      "Build the plant with 3 large leaves instead of many small ones.",
+      "Put the face on the pot body so the leaves stay clean.",
+      "For the icon version, use pot + three leaves + two dot eyes."
+    ],
+    svg: "plant-pot"
+  },
+  "mailbox": {
+    base: "arched box on post with flag",
+    shapes: ["domed mailbox", "front door curve", "post", "side flag", "face zone"],
+    steps: [
+      "Draw the mailbox as a rectangle with a half-cylinder top.",
+      "Add the front door curve to show the opening side.",
+      "Attach one post underneath so it does not look like a toaster.",
+      "Add a little side flag as the signature part.",
+      "For the icon version, exaggerate the flag and simplify the post."
+    ],
+    svg: "mailbox"
+  },
+  "book stack": {
+    base: "three offset rounded rectangles",
+    shapes: ["bottom book", "middle book", "top book", "page lines", "bookmark"],
+    steps: [
+      "Stack three rounded rectangles, each slightly offset.",
+      "Vary the thickness of each book so the stack feels playful.",
+      "Add only 1–2 page lines per book.",
+      "Place the face on the top book or make the whole stack the character.",
+      "For the icon version, reduce to two books plus a bookmark stripe."
+    ],
+    svg: "book-stack"
+  },
+  "watering can": {
+    base: "round can body with spout and handle",
+    shapes: ["round tank", "top handle", "long spout", "rose tip", "low face"],
+    steps: [
+      "Start with a round or oval can body.",
+      "Add the big top handle before the spout.",
+      "Draw a long triangular spout; this is the unmistakable feature.",
+      "Place the face on the can body, away from the spout.",
+      "For the icon version, keep circle body + handle + spout silhouette."
+    ],
+    svg: "watering-can"
+  },
+  "camera": {
+    base: "rounded camera body with lens circle",
+    shapes: ["rounded rectangle", "large lens", "top bump", "strap dots", "face/lens choice"],
+    steps: [
+      "Draw a rounded rectangle for the camera body.",
+      "Add the large lens circle as the main readable feature.",
+      "Use one small top bump for the shutter.",
+      "Choose: make the lens the eye, or put the face beside it — not both.",
+      "For the icon version, keep body + lens + top bump only."
+    ],
+    svg: "camera"
+  },
+  "avocado half": {
+    base: "pear oval with pit circle",
+    shapes: ["pear body", "inner flesh oval", "pit circle", "tiny face", "rim"],
+    steps: [
+      "Draw a pear-shaped oval for the avocado outside.",
+      "Add a smaller inner oval for the flesh area.",
+      "Place the pit circle low and use it as a belly or nose.",
+      "Put the face above or around the pit without crowding it.",
+      "For the icon version, keep outer pear + inner oval + pit."
+    ],
+    svg: "avocado"
+  },
+  "ramen bowl": {
+    base: "bowl ellipse with noodle waves",
+    shapes: ["bowl arc", "rim ellipse", "noodle waves", "chopsticks", "face on bowl"],
+    steps: [
+      "Draw the bowl as a wide arc with a flat oval rim.",
+      "Put noodle waves above the rim as 3 big curves.",
+      "Add chopsticks diagonally if you want instant ramen recognition.",
+      "Place the face on the bowl front, not in the noodles.",
+      "For the icon version, keep bowl + 2 noodle curves + chopsticks."
+    ],
+    svg: "ramen"
+  },
+  "donut": {
+    base: "ring circle with frosting blob",
+    shapes: ["outer circle", "hole circle", "frosting wobble", "sprinkle dashes", "face zone"],
+    steps: [
+      "Draw the outer circle first, then cut the hole with a smaller circle.",
+      "Add a wobbly frosting ring that does not cover the whole donut.",
+      "Use sprinkles as 3–5 simple dashes only.",
+      "Put the face on the frosting or dough area with the most open space.",
+      "For the icon version, keep ring + hole + frosting silhouette."
+    ],
+    svg: "donut"
+  },
+  "ice cream cone": {
+    base: "scoop circles stacked on cone triangle",
+    shapes: ["cone triangle", "scoop circle", "drip curve", "waffle lines", "face on scoop"],
+    steps: [
+      "Draw the cone triangle first so the dessert has a base.",
+      "Add one large scoop circle or blob on top.",
+      "Use one drip curve for charm, not many.",
+      "Place the face on the scoop.",
+      "For the icon version, keep triangle + circle + one drip."
+    ],
+    svg: "ice-cream"
+  },
+  "pizza slice": {
+    base: "long triangle slice with crust arc",
+    shapes: ["triangle slice", "curved crust", "cheese drip", "pepperoni dots", "low face"],
+    steps: [
+      "Draw a long triangle with the point down.",
+      "Add a curved crust along the wide top edge.",
+      "Use two or three big topping circles, not tiny scattered dots.",
+      "Put the face in the lower open cheese area.",
+      "For the icon version, keep triangle + crust + one topping."
+    ],
+    svg: "pizza"
+  },
+  "banana": {
+    base: "long crescent with stem ends",
+    shapes: ["outer crescent", "inner curve", "two stems", "face along middle"],
+    steps: [
+      "Draw a curved banana crescent using two long arcs.",
+      "Add small stem shapes at both ends.",
+      "Place the face along the center of the banana, following the curve.",
+      "Use the bend as the personality pose.",
+      "For the icon version, keep one bold crescent with two end caps."
+    ],
+    svg: "banana"
+  },
+  "capsule critter": {
+    base: "vertical capsule body",
+    shapes: ["capsule body", "face band", "tiny feet", "top prop"],
+    steps: [
+      "Draw a tall capsule as the whole body.",
+      "Divide it with one subtle band only if it helps expression.",
+      "Place the face in the upper-middle or lower-third depending on cuteness.",
+      "Add tiny feet at the bottom, not full legs.",
+      "For the icon version, keep capsule + face + one prop."
+    ],
+    svg: "capsule"
+  },
+  "teardrop sprite": {
+    base: "teardrop body with rounded point",
+    shapes: ["drop silhouette", "point direction", "low face", "tiny arm"],
+    steps: [
+      "Draw a teardrop with a soft rounded point.",
+      "Use the pointed end to show direction or attitude.",
+      "Place the face in the round lower part.",
+      "Add one tiny arm or sparkle, not a full outfit.",
+      "For the icon version, keep the drop silhouette crisp."
+    ],
+    svg: "teardrop"
+  },
+  "diamond friend": {
+    base: "rounded diamond with tiny facets",
+    shapes: ["diamond body", "center face", "two facet lines", "tiny shine"],
+    steps: [
+      "Draw a diamond shape, then round the sharp corners.",
+      "Place the face in the center where the diamond is widest.",
+      "Add only two facet lines so it stays readable.",
+      "Use one small shine mark for sparkle.",
+      "For the icon version, keep diamond + shine + dot eyes."
+    ],
+    svg: "diamond"
+  },
+  "ribbon badge": {
+    base: "circle medal with hanging ribbons",
+    shapes: ["medal circle", "inner ring", "two ribbon tails", "central symbol"],
+    steps: [
+      "Start with a circle medal, then add an inner ring.",
+      "Attach two ribbon tails below; this makes it different from a normal badge.",
+      "Place one simple symbol in the center.",
+      "Keep the border thick and the interior clean.",
+      "For the icon version, keep medal + two ribbons + one symbol."
+    ],
+    svg: "ribbon-badge"
+  },
+  "coffee shop logo": {
+    base: "cup silhouette inside circular seal",
+    shapes: ["outer seal", "cup body", "handle", "steam mark", "small bean"],
+    steps: [
+      "Draw a circle seal first, then place a cup silhouette inside.",
+      "Make the handle large enough to read at tiny size.",
+      "Use one steam curl above the cup as the brand detail.",
+      "Optional: add one coffee bean shape, not a full pattern.",
+      "For the icon version, keep circle seal + cup + steam."
+    ],
+    svg: "coffee-logo"
+  },
+  "book club mark": {
+    base: "open book with bookmark flame",
+    shapes: ["two page wings", "center spine", "bookmark", "spark/star"],
+    steps: [
+      "Draw the open book as two symmetrical page wings.",
+      "Add a center spine line so it reads as open.",
+      "Turn the bookmark into a small flame, leaf, or sparkle for personality.",
+      "Keep all page lines minimal.",
+      "For the icon version, keep pages + spine + one bookmark mark."
+    ],
+    svg: "book-logo"
+  },
+  "bakery seal": {
+    base: "scalloped seal with pastry symbol",
+    shapes: ["scalloped edge", "inner circle", "croissant/pastry", "tiny star"],
+    steps: [
+      "Draw the outer badge with scalloped bumps, not a plain circle.",
+      "Add an inner circle to make it feel like a stamp.",
+      "Place one pastry silhouette in the middle.",
+      "Use tiny stars or dots only around the edge.",
+      "For the icon version, keep scallop edge + pastry."
+    ],
+    svg: "bakery-seal"
+  },
+  "rocket patch": {
+    base: "patch shield with rocket diagonal",
+    shapes: ["patch container", "rocket capsule", "fins", "flame", "motion arc"],
+    steps: [
+      "Draw the patch container first: shield, circle, or rounded triangle.",
+      "Place the rocket diagonally so the badge has motion.",
+      "Build the rocket from capsule body + two fins + flame.",
+      "Keep the flame one simple teardrop.",
+      "For the icon version, keep container + diagonal rocket silhouette."
+    ],
+    svg: "rocket-patch"
+  },
+  "cat face icon": {
+    base: "circle head with triangle ears",
+    shapes: ["round head", "two ears", "muzzle circle", "whisker lines", "dot eyes"],
+    steps: [
+      "Start with a circle head and add two triangle ears.",
+      "Add a small muzzle circle or oval before whiskers.",
+      "Use 2–3 whisker lines per side at most.",
+      "Keep the eyes simple and wide.",
+      "For the icon version, keep head + ears + whiskers."
+    ],
+    svg: "cat-icon"
+  },
+  "crown badge": {
+    base: "shield container with crown silhouette",
+    shapes: ["shield", "crown points", "inner gem circle", "bottom banner"],
+    steps: [
+      "Draw the shield container first so the badge has a clear boundary.",
+      "Build the crown with three rounded points.",
+      "Add one center gem circle as the only tiny detail.",
+      "Use a bottom banner only if it stays readable.",
+      "For the icon version, keep shield + crown + gem."
+    ],
+    svg: "crown-badge"
+  },
+  "wave emblem": {
+    base: "circle seal with curling wave",
+    shapes: ["outer circle", "wave curl", "foam dots", "horizon line"],
+    steps: [
+      "Draw a clean outer circle first.",
+      "Inside it, use one strong curling wave shape.",
+      "Add only 1–3 foam dots.",
+      "Use the wave curve as the main silhouette.",
+      "For the icon version, keep circle + wave curl."
+    ],
+    svg: "wave-emblem"
+  }
+};
+
+const vibeModifiers = {
+  cute: {
+    shapes: ["blush dots", "rounded corners"],
+    steps: ["Cute pass: round every corner and keep the face low with extra blank space above it."]
+  },
+  sleepy: {
+    shapes: ["sleepy eyelids", "soft tilt"],
+    steps: ["Sleepy pass: use curved closed eyes, a tiny lean, and one slow detail like steam, pillow, or moon."]
+  },
+  silly: {
+    shapes: ["asymmetry", "wobbly pose"],
+    steps: ["Silly pass: offset one eye, tilt the body, and exaggerate exactly one feature."]
+  },
+  magical: {
+    shapes: ["sparkle accent", "glow halo"],
+    steps: ["Magical pass: add one sparkle, crescent, or halo outside the silhouette; do not cover the face zone."]
+  },
+  bold: {
+    shapes: ["thick outer contour", "tiny-size test"],
+    steps: ["Bold pass: thicken the outline, delete interior texture, and check it at app-icon size."]
+  },
+  cozy: {
+    shapes: ["warm prop", "soft seam"],
+    steps: ["Cozy pass: add one comfort detail such as steam, blanket seam, scarf, or tiny mug-like warmth."]
+  },
+  spooky: {
+    shapes: ["tiny fangs or ghost curve", "moon accent"],
+    steps: ["Spooky-cute pass: add one harmless spooky cue — fang, tiny ghost tail, bat bow, or moon — while keeping the silhouette friendly."]
+  },
+  retro: {
+    shapes: ["rubber-hose limbs", "poster shadow"],
+    steps: ["Retro pass: use noodle arms, simple gloves/feet, and a chunky offset shadow like an old mascot sticker."]
+  },
+  kawaii: {
+    shapes: ["extra-low face", "sparkly cheeks"],
+    steps: ["Kawaii pass: make the body bigger, limbs smaller, cheeks rounder, and the face lower than you think."]
+  },
+  minimal: {
+    shapes: ["one-line detail", "flat fill"],
+    steps: ["Minimal pass: reduce the idea to one silhouette, one cutout, and one accent color."]
+  },
+  sporty: {
+    shapes: ["motion slash", "patch border"],
+    steps: ["Sporty pass: add a diagonal motion line or patch border; avoid cute texture that weakens the badge."]
+  },
+  fancy: {
+    shapes: ["thin inner border", "small ornament"],
+    steps: ["Fancy pass: add one elegant inner border or tiny ornament, then stop before it becomes busy."]
+  }
+};
+
+const focusModifiers = {
+  "simple-shapes": {
+    shapes: ["3-shape limit"],
+    steps: ["Focus pass: limit the drawing to the base shape, one signature part, and the face."]
+  },
+  faces: {
+    shapes: ["face placement map"],
+    steps: ["Focus pass: draw the same subject with three faces: dot-eye cute, sleepy arc, and silly uneven eyes."]
+  },
+  silhouette: {
+    shapes: ["black fill test"],
+    steps: ["Focus pass: fill the outside shape black; enlarge the signature feature if the subject disappears."]
+  },
+  logo: {
+    shapes: ["symbol reduction"],
+    steps: ["Focus pass: remove the character body if needed and keep the subject as a single logo mark."]
+  },
+  expression: {
+    shapes: ["pose axis"],
+    steps: ["Focus pass: draw a center tilt line and make the body angle match the emotion."]
+  },
+  construction: {
+    shapes: ["numbered build order"],
+    steps: ["Focus pass: draw the blueprint in order: base primitive, secondary part, face zone, then details."]
+  },
+  proportion: {
+    shapes: ["big-small ratio"],
+    steps: ["Focus pass: make the signature feature oversized and the limbs tiny to create beginner-friendly character appeal."]
+  },
+  texture: {
+    shapes: ["texture cluster"],
+    steps: ["Focus pass: place texture in one cluster only, leaving the face zone clean."]
+  },
+  "badge-layout": {
+    shapes: ["container + inner mark"],
+    steps: ["Focus pass: choose a specific container — seal, shield, ribbon, patch, or stamp — before drawing the inside symbol."]
+  },
+  "negative-space": {
+    shapes: ["cutout shape"],
+    steps: ["Focus pass: reserve one blank cutout that still reads when the icon is small."]
+  },
+  palette: {
+    shapes: ["two-color plan"],
+    steps: ["Focus pass: assign one color to the base, one to the signature part, and use line only for face/details."]
+  },
+  variation: {
+    shapes: ["3 thumbnails"],
+    steps: ["Focus pass: make three thumbnails: round, tall, and badge/icon version before polishing one."]
+  }
+};
+
+function withBlueprintModifiers(profile, vibe, focus, subject) {
+  const copy = {
+    ...profile,
+    shapes: Array.isArray(profile.shapes) ? [...profile.shapes] : ["base shape", "signature detail", "face zone"],
+    steps: Array.isArray(profile.steps) ? [...profile.steps] : [`Block the ${subject} with its biggest simple shape first.`]
+  };
+
+  const vibeMod = vibeModifiers[vibe];
+  const focusMod = focusModifiers[focus];
+
+  if (vibeMod) {
+    copy.shapes.push(...vibeMod.shapes);
+    copy.steps.push(...vibeMod.steps);
+  }
+
+  if (focusMod) {
+    copy.shapes.push(...focusMod.shapes);
+    copy.steps.push(...focusMod.steps);
+  }
+
+  copy.shapes = [...new Set(copy.shapes)].slice(0, 9);
+  copy.steps = [...new Set(copy.steps)].slice(0, 9);
+  return copy;
+}
+
+function getBlueprintProfile(subject, family, focus, vibe = "cute") {
+  const direct = subjectBlueprintExtras[subject] || blueprintProfiles[subject];
+  if (direct) return withBlueprintModifiers(direct, vibe, focus, subject);
+
+  if (focus === "badge-layout" || focus === "logo" || family === "icons") {
+    const iconProfile = inferIconProfile(subject, focus);
+    return withBlueprintModifiers(iconProfile, vibe, focus, subject);
+  }
+
+
+  if (family === "badges") {
+    const badgeProfile = inferIconProfile(subject, focus);
+    const badgeType = String(subject).toLowerCase();
+    if (!badgeProfile.svg || badgeProfile.svg === "logo") {
+      badgeProfile.svg = badgeType.includes("ribbon") ? "ribbon-badge" :
+        badgeType.includes("shield") || badgeType.includes("crest") || badgeType.includes("patch") ? "shield" :
+        badgeType.includes("stamp") || badgeType.includes("seal") ? "smile-stamp" :
+        "badge";
+    }
+    badgeProfile.base = badgeProfile.base || `${subject} container hierarchy with a central symbol`;
+    return withBlueprintModifiers(badgeProfile, vibe, focus, subject);
+  }
+
+  if (family === "lettering") {
+    return withBlueprintModifiers({
+      base: `${subject} built from a readable letterform first`,
+      shapes: ["main letterform", "counter/open space", "face or symbol zone", "sticker/container edge"],
       steps: [
-        `Reduce the ${subject} into one bold central silhouette.`,
-        "Place it inside a squircle, badge, circle, or shield container.",
-        "Remove surface texture and keep only the feature that makes it recognizable.",
-        "Test it as a tiny mark: squint or zoom out until details disappear.",
-        "For the final icon, use two colors plus one optional highlight."
+        `Draw the letter shape for ${subject} before turning it into a character or logo.`,
+        "Keep the counter/open spaces readable; do not fill them with tiny decoration.",
+        "Put the face, prop, or symbol on the broadest stroke.",
+        "Add a border or sticker edge only after the letter still reads.",
+        "For the icon version, crop to one strong initial and remove small marks."
       ],
       svg: "logo"
-    };
+    }, vibe, focus, subject);
+  }
+
+  if (family === "mascots") {
+    return withBlueprintModifiers({
+      base: `${subject} role silhouette plus one story prop`,
+      shapes: ["base character body", "role prop", "pose/tilt line", "face zone"],
+      steps: [
+        `Block the ${subject} as one simple body before costume details.`,
+        "Add the one prop that names the role: book, hat, wand, bag, shield, or tool.",
+        "Tilt the body or prop to show personality.",
+        "Keep the face clear and large enough to read from across the iPad.",
+        "For the icon version, keep body + prop + expression only."
+      ],
+      svg: "bean"
+    }, vibe, focus, subject);
+  }
+
+  if (family === "nature") {
+    return withBlueprintModifiers({
+      base: `${subject} organic silhouette with one nature signature`,
+      shapes: ["organic outer shape", "leaf/petal/shell mark", "face zone", "texture cluster"],
+      steps: [
+        `Find the biggest nature silhouette in the ${subject}: leaf, shell, cloud, rock, droplet, or flower.`,
+        "Draw that outside shape first with soft uneven edges.",
+        "Group texture marks in one area instead of scattering them everywhere.",
+        "Place the face where the silhouette has the most empty space.",
+        "For the icon version, keep the nature silhouette and one inner vein/dot/stripe."
+      ],
+      svg: String(subject).includes("cloud") ? "cloud" : String(subject).includes("star") ? "star" : String(subject).includes("leaf") || String(subject).includes("flower") ? "sprout" : "bean"
+    }, vibe, focus, subject);
   }
 
   if (family === "foods") {
-    return {
-      base: "food silhouette plus face zone",
-      shapes: ["main food outline", "top/detail shape", "low face", "one texture group"],
+    return withBlueprintModifiers({
+      base: `${subject} silhouette plus one edible signature detail`,
+      shapes: ["main food outline", "signature edible part", "low face zone", "one texture cluster"],
       steps: [
         `Find the biggest recognizable food shape in the ${subject} first.`,
         "Draw the outside silhouette before adding eyes or texture.",
@@ -262,27 +896,27 @@ function getBlueprintProfile(subject, family, focus) {
         "For the icon version, remove texture until the silhouette still says the food."
       ],
       svg: "food"
-    };
+    }, vibe, focus, subject);
   }
 
   if (family === "objects") {
-    return {
-      base: "object silhouette plus readable feature",
-      shapes: ["main object body", "signature object part", "face zone", "one prop/detail"],
+    return withBlueprintModifiers({
+      base: `${subject} body plus the one part that names the object`,
+      shapes: ["main object body", "signature object part", "face zone", "one story detail"],
       steps: [
         `Block the ${subject} using its largest simple shape.`,
-        "Add the one part that makes the object unmistakable: handle, lid, legs, strap, or top.",
+        "Add the one part that makes the object unmistakable: handle, lid, legs, strap, lens, spout, or top.",
         "Put the face on the largest empty surface.",
         "Avoid decorating every edge; choose one story detail.",
         "For the icon version, exaggerate the signature part and simplify everything else."
       ],
       svg: "object"
-    };
+    }, vibe, focus, subject);
   }
 
-  return {
-    base: "friendly blob silhouette",
-    shapes: ["main blob", "low face", "small limbs", "one personality detail"],
+  return withBlueprintModifiers({
+    base: `${subject} built from one friendly body shape`,
+    shapes: ["main blob", "direction/pose line", "low face", "one personality detail"],
     steps: [
       `Turn the ${subject} into one readable blob or basic shape first.`,
       "Place the face low and leave enough blank space around it.",
@@ -291,6 +925,78 @@ function getBlueprintProfile(subject, family, focus) {
       "For the icon version, keep only the silhouette, face, and one signature detail."
     ],
     svg: "bean"
+  }, vibe, focus, subject);
+}
+
+function inferIconProfile(subject, focus) {
+  const lower = String(subject).toLowerCase();
+  if (lower.includes("shield")) {
+    return {
+      base: "shield container with central symbol",
+      shapes: ["shield outline", "inner emblem", "top shine", "bottom point"],
+      steps: [
+        `Draw the ${subject} as a shield first, not as a circle badge.`,
+        "Use the shield point and shoulders as the recognizable container.",
+        "Place one central symbol inside the safe middle area.",
+        "Keep tiny details away from the pointed bottom.",
+        "For the icon version, keep shield + one symbol + one highlight."
+      ],
+      svg: "shield"
+    };
+  }
+  if (lower.includes("stamp")) {
+    return {
+      base: "stamp square with perforated edge and central face",
+      shapes: ["stamp container", "perforated corners", "central symbol", "thick border"],
+      steps: [
+        `Build the ${subject} as a stamp, with a chunky square or rounded-square edge.`,
+        "Add only a few perforation bumps or corner cuts.",
+        "Place the smile/mark in the middle with lots of breathing room.",
+        "Use a thick border so it reads tiny.",
+        "For the icon version, keep stamp edge + central smile only."
+      ],
+      svg: "smile-stamp"
+    };
+  }
+  if (lower.includes("badge") || lower.includes("patch")) {
+    return {
+      base: "specific badge container plus subject symbol",
+      shapes: ["outer badge container", "inner ring or patch border", "central subject", "one banner/accent"],
+      steps: [
+        `Choose the badge type for ${subject}: seal, ribbon, patch, shield, or medal — do not use the same container every time.`,
+        "Draw the outer container first; it decides the whole logo personality.",
+        "Add the central subject as one simplified silhouette.",
+        "Use only one accent: banner, sparkle, ring, ribbon, or motion slash.",
+        "For the icon version, test it at tiny size and delete the weakest detail."
+      ],
+      svg: lower.includes("ribbon") ? "ribbon-badge" : lower.includes("rocket") ? "rocket-patch" : lower.includes("crown") ? "crown-badge" : "badge"
+    };
+  }
+  if (lower.includes("logo") || lower.includes("mark") || lower.includes("emblem")) {
+    return {
+      base: "brand mark built from a unique container and symbol",
+      shapes: ["chosen container", "central silhouette", "negative-space cut", "tiny-size border"],
+      steps: [
+        `Reduce the ${subject} into one central symbol with a unique container.`,
+        "Pick the container from the subject: cup seal, book wings, wave circle, garden leaf, or paint palette.",
+        "Create one negative-space gap or simple inner shape.",
+        "Remove surface texture and keep only what names the brand.",
+        "For the final icon, use two colors plus one optional highlight."
+      ],
+      svg: lower.includes("coffee") ? "coffee-logo" : lower.includes("book") ? "book-logo" : lower.includes("wave") ? "wave-emblem" : lower.includes("paint") ? "palette-logo" : lower.includes("leaf") || lower.includes("garden") ? "leaf-emblem" : "logo"
+    };
+  }
+  return {
+    base: "bold symbol inside a deliberate container",
+    shapes: ["container shape", "central symbol", "one accent cutout", "two-color palette"],
+    steps: [
+      `Reduce the ${subject} into one bold central silhouette.`,
+      "Choose a container that matches the subject instead of defaulting to a generic badge.",
+      "Remove surface texture and keep only the feature that makes it recognizable.",
+      "Test it as a tiny mark: squint or zoom out until details disappear.",
+      "For the final icon, use two colors plus one optional highlight."
+    ],
+    svg: "logo"
   };
 }
 
@@ -444,6 +1150,203 @@ function blueprintShapeMarkup(type) {
 }
 
 
+
+Object.assign(subjectBlueprintExtras, {
+  "rubber stamp": {
+    base: "chunky handle plus flat stamp base",
+    shapes: ["rounded handle", "flat stamp block", "rubber foot", "face on base"],
+    steps: [
+      "Draw the handle as a small rounded knob first.",
+      "Attach a wide flat rectangle for the stamp base so it reads as a tool.",
+      "Add the rubber foot as a darker strip along the bottom.",
+      "Place the face on the broad front panel, not the handle.",
+      "For the icon version, keep handle + base + bottom strip only."
+    ],
+    svg: "object"
+  },
+  "jar of stars": {
+    base: "glass jar silhouette with star cluster inside",
+    shapes: ["rounded jar body", "lid band", "inner star cluster", "label face zone"],
+    steps: [
+      "Start with a rounded jar body and a flat lid band.",
+      "Keep the jar outline simple before adding the stars.",
+      "Group 3 stars inside instead of scattering many tiny marks.",
+      "Put the face on a clean label area.",
+      "For the icon version, use jar + lid + one large star."
+    ],
+    svg: "object"
+  },
+  "sandwich triangle": {
+    base: "stacked triangle with filling stripe",
+    shapes: ["large triangle", "inner bread layer", "filling stripe", "low face"],
+    steps: [
+      "Draw one clear triangle first, like a cut sandwich half.",
+      "Add a smaller parallel triangle inside for the bread edge.",
+      "Use one wavy filling stripe as the signature detail.",
+      "Keep the face below the filling so it stays readable.",
+      "For the icon version, keep triangle + stripe + dot eyes."
+    ],
+    svg: "triangle"
+  },
+  "onigiri": {
+    base: "rounded triangle rice body with seaweed patch",
+    shapes: ["soft triangle", "seaweed rectangle", "rice edge", "low face"],
+    steps: [
+      "Start with a rounded triangle, wider at the bottom.",
+      "Add a dark seaweed patch centered on the lower front.",
+      "Place the face above the seaweed so the food still reads.",
+      "Use only a few rice dots along the edge.",
+      "For the icon version, keep triangle + seaweed patch."
+    ],
+    svg: "triangle"
+  },
+  "popcorn bucket": {
+    base: "tapered bucket plus popcorn cloud top",
+    shapes: ["tapered bucket", "striped panels", "popcorn bumps", "face zone"],
+    steps: [
+      "Block the bucket as a tapered rectangle.",
+      "Add vertical stripe panels before the face.",
+      "Draw the popcorn as 4–5 cloud bumps on top.",
+      "Put the face on the clean bucket panel.",
+      "For the icon version, keep bucket silhouette + popcorn bumps."
+    ],
+    svg: "food"
+  },
+  "oval potato": {
+    base: "lumpy oval body with tiny sprout marks",
+    shapes: ["uneven oval", "tiny dents", "low face", "one sprout"],
+    steps: [
+      "Draw an oval, then dent two edges so it is not a perfect egg.",
+      "Add only 3 small potato eyes or speckles.",
+      "Place the face low and leave empty space around it.",
+      "Add one tiny sprout or leg to make it a character.",
+      "For the icon version, keep the lumpy oval and one sprout."
+    ],
+    svg: "bean"
+  },
+  "soft lightning bolt": {
+    base: "rounded zigzag with softened corners",
+    shapes: ["zigzag spine", "thick rounded edges", "face zone", "tiny sparks"],
+    steps: [
+      "Sketch a clear zigzag line first.",
+      "Thicken it into a soft lightning shape with rounded corners.",
+      "Place the face in the widest middle section.",
+      "Add only two tiny spark marks around it.",
+      "For the icon version, keep the bold zigzag silhouette."
+    ],
+    svg: "star"
+  },
+  "teacup dragon": {
+    base: "teacup body with tiny dragon wings and steam horns",
+    shapes: ["cup bowl", "C-handle tail", "small wings", "steam horns", "face on cup"],
+    steps: [
+      "Draw the teacup bowl first so the object stays readable.",
+      "Turn the handle into a curled dragon tail.",
+      "Add two tiny wings as simple triangles.",
+      "Use steam curls as horn shapes above the cup.",
+      "For the icon version, keep cup + tail handle + one wing."
+    ],
+    svg: "mug"
+  },
+  "toast knight": {
+    base: "toast body with shield prop and tiny helmet stripe",
+    shapes: ["toast arch", "crust border", "small shield", "helmet band", "low face"],
+    steps: [
+      "Build the toast arch and inner crust line first.",
+      "Add a simple shield shape to one side.",
+      "Use one horizontal band as the helmet detail.",
+      "Keep the face low inside the toast body.",
+      "For the icon version, keep toast + shield."
+    ],
+    svg: "toast"
+  },
+  "mushroom librarian": {
+    base: "mushroom cap plus book rectangle",
+    shapes: ["dome cap", "stem body", "open book", "tiny glasses"],
+    steps: [
+      "Start with the mushroom cap and stem so the subject reads.",
+      "Add an open book as two small rectangles in front.",
+      "Place glasses above the book, not too tiny.",
+      "Use cap spots sparingly so they do not fight the book.",
+      "For the icon version, keep mushroom + book shape."
+    ],
+    svg: "mushroom"
+  },
+  "cloud mail carrier": {
+    base: "cloud body with envelope prop",
+    shapes: ["cloud bumps", "envelope rectangle", "strap line", "face zone"],
+    steps: [
+      "Draw the cloud silhouette with 4 large bumps.",
+      "Add one envelope rectangle as the job prop.",
+      "Use a diagonal strap line only if it does not clutter the face.",
+      "Place the face in the largest empty cloud bump.",
+      "For the icon version, keep cloud + envelope."
+    ],
+    svg: "cloud"
+  },
+  "sports pennant": {
+    base: "long triangle flag with bold border",
+    shapes: ["pennant triangle", "border stripe", "single symbol", "motion tail"],
+    steps: [
+      "Draw a long horizontal triangle like a team pennant.",
+      "Add a thick border stripe following the edge.",
+      "Put one large symbol in the wide end.",
+      "Use a small motion tail or notch only if the shape stays clear.",
+      "For the icon version, remove all tiny text."
+    ],
+    svg: "triangle"
+  },
+  "merit badge": {
+    base: "scalloped seal with one center symbol",
+    shapes: ["scallop edge", "inner circle", "center symbol", "small ribbon"],
+    steps: [
+      "Start with the outer scalloped seal.",
+      "Add a simpler inner circle to create hierarchy.",
+      "Place one center symbol, not multiple tiny symbols.",
+      "Attach a small ribbon only after the center reads.",
+      "For the icon version, keep scallop + center symbol."
+    ],
+    svg: "badge"
+  },
+  "campfire patch": {
+    base: "shield patch with flame and log base",
+    shapes: ["patch shield", "flame teardrop", "two logs", "border"],
+    steps: [
+      "Draw a shield or rounded patch container first.",
+      "Build the flame from one large teardrop and one smaller inner teardrop.",
+      "Add two crossed logs under the flame.",
+      "Keep the border simple so the flame stays dominant.",
+      "For the icon version, keep patch + flame only."
+    ],
+    svg: "shield"
+  },
+  "letter A character": {
+    base: "capital A as body with crossbar face zone",
+    shapes: ["A silhouette", "crossbar", "two leg strokes", "tiny arms"],
+    steps: [
+      "Draw a bold capital A before adding any face.",
+      "Use the crossbar as a natural face or mouth zone.",
+      "Keep the two leg strokes readable as the letterform.",
+      "Add tiny arms outside the letter, not inside the counter.",
+      "For the icon version, keep the A and one facial expression."
+    ],
+    svg: "logo"
+  },
+  "bubble word mark": {
+    base: "rounded word silhouette with sticker border",
+    shapes: ["bubble letters", "shared baseline", "outer sticker edge", "one sparkle"],
+    steps: [
+      "Sketch the word as one soft blob silhouette first.",
+      "Make every letter rounded and similarly weighted.",
+      "Add the sticker border after the letters are readable.",
+      "Use one sparkle or underline as the only decoration.",
+      "For the icon version, crop to the strongest initial."
+    ],
+    svg: "logo"
+  }
+});
+
+
 const difficultyMap = {
   seedling: { label: "Seedling", minutes: 15, detail: "Use only 3–5 simple shapes." },
   sprout: { label: "Sprout", minutes: 25, detail: "Add one texture, one prop, and a clearer pose." },
@@ -521,15 +1424,21 @@ function makeMission() {
   const vibe = $("#vibe").value;
   const focus = $("#skillFocus").value;
   const difficulty = $("#difficulty").value;
-  const familyKey = family === "mixed" ? randomItem(["objects", "foods", "shapes", "icons"]) : family;
-  const subject = randomItem(subjects[familyKey]);
+  const learningPath = $("#learningPath")?.value || "guided-session";
+  const allFamilies = Object.keys(subjects);
+  const familyKey = family === "mixed" ? randomItem(allFamilies) : family;
+  const selectedSubject = $("#subjectChoice")?.value || "random";
+  const subject = selectedSubject !== "random" && subjects[familyKey]?.includes(selectedSubject)
+    ? selectedSubject
+    : randomItem(subjects[familyKey]);
   const personality = randomItem(personalities[vibe]);
   const kit = shapeKits[focus];
   const difficultyData = difficultyMap[difficulty];
 
   const title = `${capitalize(personality)} ${subject}`;
-  const iconMode = focus === "logo" || familyKey === "icons";
-  const blueprint = getBlueprintProfile(subject, familyKey, focus);
+  const iconMode = focus === "logo" || ["icons", "badges", "lettering"].includes(familyKey) || ["badge-layout", "negative-space", "container-hierarchy", "small-size-readability", "logo-family"].includes(focus);
+  const blueprint = getBlueprintProfile(subject, familyKey, focus, vibe);
+  const learning = buildLearningPlan({ subject, family: familyKey, vibe, focus, difficulty, blueprint, iconMode, personality, learningPath });
 
   return {
     id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
@@ -538,10 +1447,12 @@ function makeMission() {
     family: familyKey,
     vibe,
     focus,
+    learningPath,
     difficulty,
     difficultyLabel: difficultyData.label,
     minutes: difficultyData.minutes,
     blueprint,
+    learning,
     prompt: iconMode
       ? `Design a ${personality} ${subject} as a simple logo or app-icon mark. Start from its real shape language: ${blueprint.base}.`
       : `Draw a ${personality} ${subject} character by building the actual subject shape first: ${blueprint.base}. Add life only after the silhouette reads.`,
@@ -555,6 +1466,182 @@ function makeMission() {
     createdAt: new Date().toISOString(),
     complete: false
   };
+}
+
+
+function buildLearningPlan({ subject, family, vibe, focus, difficulty, blueprint, iconMode, personality, learningPath }) {
+  const path = learningPaths[learningPath] || learningPaths["guided-session"];
+  const subjectName = subject || "drawing seed";
+  const mainShape = blueprint?.base || "one clear base shape";
+  const signature = Array.isArray(blueprint?.shapes) && blueprint.shapes.length ? blueprint.shapes[0] : "silhouette";
+
+  const categoryWhy = {
+    foods: `Food mascots read best when the food silhouette stays clear before the face is added. ${capitalize(subjectName)} should still read as food even if the eyes are hidden.`,
+    objects: `Object characters work when the useful object parts stay recognizable. For ${subjectName}, protect the signature part before decorating.`,
+    shapes: `Shape characters teach control because the whole personality comes from proportion, face placement, tilt, and one tiny detail.`,
+    icons: `Icons need one dominant symbol, one container decision, and details that survive at tiny size.`,
+    badges: `Badges are not one shape: seals, shields, patches, ribbons, and stamps each need different hierarchy and border logic.`,
+    mascots: `Mascots work when the role is visible in the pose, prop, and silhouette before costume details are added.`,
+    nature: `Nature drawings read best when the organic silhouette stays simple and the texture marks are grouped, not sprinkled everywhere.`,
+    lettering: `Lettering marks need the letterform to stay readable while the face, prop, or decoration stays secondary.`,
+    gym: `Warmups build mileage. The goal is speed, observation, and iteration rather than a polished final image.`
+  };
+
+  const focusWhy = {
+    "simple-shapes": "You are training your eye to see every character as 1–3 big pieces before details.",
+    faces: "Face placement changes emotion more than extra details do; low faces usually feel cuter and softer.",
+    silhouette: "A strong outline makes the drawing readable before color, texture, or expression.",
+    logo: "Logo simplification teaches you to remove details until only the clearest symbol remains.",
+    expression: "Expression practice teaches how pose, tilt, eyes, and mouth can change a character without redesigning it.",
+    construction: "Construction practice teaches the drawing order, so you can rebuild the subject from memory later.",
+    proportion: "Proportion practice teaches what to exaggerate: tiny limbs, oversized signature parts, low face zones.",
+    texture: "Texture should support the subject, not bury the face or silhouette.",
+    "badge-layout": "Badge layout teaches container hierarchy: border first, symbol second, words/details last.",
+    "negative-space": "Negative space makes a logo smarter by letting the background become part of the symbol.",
+    palette: "A limited palette makes the design clearer and easier to finish.",
+    variation: "Variation practice teaches flexibility: one subject can become a mascot, icon, badge, or sticker.",
+    "memory-mode": "Memory mode builds construction understanding by forcing you to redraw the subject without staring at the guide.",
+    "redraw-ladder": "Redraw ladders teach improvement by changing one thing at a time instead of restarting randomly.",
+    "procreate-layers": "Layer planning keeps the Procreate file clean and prevents details from locking you into a weak sketch.",
+    critique: "Self-critique teaches you what to look for after drawing: silhouette, clarity, expression, and tiny-size readability.",
+    "shape-vocabulary": "Shape vocabulary helps you reuse forms across characters, foods, objects, icons, and badges."
+  };
+
+  const commonMistakes = {
+    foods: `Adding seeds, sprinkles, crumbs, or toppings before the ${signature} reads clearly.`,
+    objects: `Turning the object into a generic blob by hiding the useful part that makes it a ${subjectName}.`,
+    shapes: `Using the same bean every time instead of changing height, tilt, corners, or weight.`,
+    icons: "Decorating the border so much that the central symbol becomes weak.",
+    gym: "Trying to make the warmup perfect instead of making many quick attempts."
+  };
+
+  const fixAdvice = {
+    foods: "Hide the face for a second. If the food is not recognizable, redraw the outer shape bigger and simpler.",
+    objects: "Circle the signature object part and make it 20% larger before adding expression.",
+    shapes: "Make three versions: one taller, one wider, and one tilted. Pick the clearest.",
+    icons: "Shrink the sketch to thumbnail size. Delete every detail that turns muddy.",
+    gym: "Set a short timer. Quantity first, polish later."
+  };
+
+  const warmup = buildWarmup(subjectName, family, focus, blueprint);
+  const variations = buildVariations(subjectName, family, vibe, focus, iconMode, blueprint);
+  const layers = buildProcreateLayers(subjectName, family, focus, blueprint);
+  const checkpoints = buildCheckpoints(family, focus, iconMode);
+  const nextExercise = buildNextExercise(family, focus, subjectName);
+
+  return {
+    pathKey: learningPath,
+    pathLabel: path.label,
+    pathGoal: path.goal,
+    pathSequence: path.sequence,
+    warmup,
+    why: [
+      categoryWhy[family] || categoryWhy.shapes,
+      focusWhy[focus] || "Practice one clear skill at a time so the drawing teaches you something specific."
+    ],
+    mistake: commonMistakes[family] || commonMistakes.shapes,
+    fix: fixAdvice[family] || fixAdvice.shapes,
+    variations,
+    layers,
+    checkpoints,
+    nextExercise
+  };
+}
+
+function buildWarmup(subject, family, focus, blueprint) {
+  const shape = blueprint?.shapes?.[0] || "base shape";
+  const warmups = [
+    `Draw 8 tiny versions of the ${shape} without details.`,
+    `Circle the 2 clearest silhouettes and redraw them slightly larger.`,
+    `Add only face placement dots to 3 versions: high, middle, and low.`,
+    family === "icons"
+      ? "Put the clearest version inside 3 containers: circle, shield, and squircle."
+      : `Add one subject detail that proves it is a ${subject}, then stop.`
+  ];
+
+  if (focus === "memory-mode") {
+    warmups.push("Study the blueprint for 30 seconds, hide it, then redraw the construction from memory.");
+  }
+  if (focus === "redraw-ladder") {
+    warmups.push("Label the first sketch 'version 1' so you expect to improve it instead of perfecting it.");
+  }
+  return warmups;
+}
+
+function buildVariations(subject, family, vibe, focus, iconMode, blueprint) {
+  const subjectBase = blueprint?.base || "simple base shape";
+  return [
+    {
+      title: "Character version",
+      instruction: `Draw the ${subject} as a ${vibe} character. Keep ${subjectBase}, then add face, gesture, and one prop.`
+    },
+    {
+      title: "Icon version",
+      instruction: `Reduce the ${subject} to 2–3 shapes. Remove texture unless it is essential to recognition.`
+    },
+    {
+      title: family === "icons" || iconMode ? "Badge variation" : "Sticker variation",
+      instruction: family === "icons" || iconMode
+        ? `Place the symbol inside a distinct container and make the border support, not overpower, the subject.`
+        : `Add a sticker edge or small shadow, but keep the silhouette readable when tiny.`
+    }
+  ];
+}
+
+function buildProcreateLayers(subject, family, focus, blueprint) {
+  const base = blueprint?.base || "base shape";
+  const layers = [
+    `Layer 1 — Construction: block in ${base} with a light sketch color.`,
+    "Layer 2 — Clean sketch: redraw only the clearest outer silhouette and face zone.",
+    "Layer 3 — Flats: add 2–4 flat colors before texture.",
+    family === "icons"
+      ? "Layer 4 — Symbol test: duplicate, shrink it, and remove muddy inner details."
+      : "Layer 4 — Texture/prop: add only the details that explain the subject.",
+    "Layer 5 — Final check: make a tiny copy in the corner to test readability."
+  ];
+
+  if (focus === "procreate-layers") {
+    layers.splice(2, 0, "Layer 2.5 — Variation sketch: duplicate the clean sketch and try a rounder or taller version.");
+  }
+  return layers;
+}
+
+function buildCheckpoints(family, focus, iconMode) {
+  const checks = [
+    "Silhouette: can I recognize the subject with the face hidden?",
+    "Shape clarity: did I use 1–3 main shapes before details?",
+    "Expression: does the face/pose match the chosen vibe?",
+    iconMode || family === "icons"
+      ? "Small-size test: does it still read as a logo or badge when tiny?"
+      : "Sticker test: does it still feel cute when drawn small?",
+    "Iteration: did I redraw one version instead of stopping at the first try?"
+  ];
+
+  if (focus === "negative-space") checks.push("Negative space: is one gap or cutout doing useful visual work?");
+  if (focus === "palette") checks.push("Palette: can the design work with only two colors and one accent?");
+  return checks;
+}
+
+function buildNextExercise(family, focus, subject) {
+  if (focus === "silhouette") return `Next: draw ${subject} five times as black silhouettes only, then choose the clearest one.`;
+  if (focus === "logo" || family === "icons") return `Next: make a no-face symbol version of ${subject}, then place it in a circle, shield, and squircle.`;
+  if (focus === "faces") return `Next: keep the same ${subject} body and test dot eyes, sleepy eyes, and excited eyes.`;
+  if (focus === "texture") return `Next: add texture in only three marks, then compare it to a no-texture version.`;
+  if (focus === "memory-mode") return `Next: close the blueprint, redraw ${subject} from memory, then correct only the biggest shape.`;
+  if (focus === "redraw-ladder") return `Next: redraw ${subject} once for silhouette, once for expression, and once as an icon.`;
+  return `Next: redraw ${subject} three ways: cuter, simpler, and weirder.`;
+}
+
+function renderLearningList(title, items, className = "") {
+  if (!Array.isArray(items) || !items.length) return "";
+  return `
+    <div class="learning-block ${className}">
+      <h4>${escapeHTML(title)}</h4>
+      <ul class="step-list">
+        ${items.map(item => `<li>${escapeHTML(item)}</li>`).join("")}
+      </ul>
+    </div>
+  `;
 }
 
 function buildSteps(subject, personality, focus, iconMode, blueprint) {
@@ -586,6 +1673,23 @@ function capitalize(value) {
   return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
+
+function populateSubjectChoices() {
+  const familySelect = $("#subjectFamily");
+  const subjectSelect = $("#subjectChoice");
+  if (!familySelect || !subjectSelect) return;
+
+  const family = familySelect.value;
+  const families = family === "mixed" ? Object.keys(subjects) : [family];
+  const options = families.flatMap(key => subjects[key] || []);
+  const current = subjectSelect.value;
+
+  subjectSelect.innerHTML = `<option value="random">Random from ${family === "mixed" ? "all families" : family}</option>` +
+    options.map(subject => `<option value="${escapeHTML(subject)}">${escapeHTML(capitalize(subject))}</option>`).join("");
+
+  if (options.includes(current)) subjectSelect.value = current;
+}
+
 function saveState() {
   try {
     const payload = {
@@ -614,7 +1718,7 @@ function loadState() {
 function renderMission() {
   if (!state.currentMission) state.currentMission = makeMission();
   if (!state.currentMission.blueprint) {
-    state.currentMission.blueprint = getBlueprintProfile(state.currentMission.subject, state.currentMission.family, state.currentMission.focus);
+    state.currentMission.blueprint = getBlueprintProfile(state.currentMission.subject, state.currentMission.family, state.currentMission.focus, state.currentMission.vibe);
     state.currentMission.steps = buildSteps(
       state.currentMission.subject,
       randomItem(personalities[state.currentMission.vibe] || personalities.cute),
@@ -622,6 +1726,20 @@ function renderMission() {
       state.currentMission.focus === "logo" || state.currentMission.family === "icons",
       state.currentMission.blueprint
     );
+  }
+  if (!state.currentMission.learning) {
+    const fallbackIconMode = state.currentMission.focus === "logo" || state.currentMission.family === "icons";
+    state.currentMission.learning = buildLearningPlan({
+      subject: state.currentMission.subject,
+      family: state.currentMission.family,
+      vibe: state.currentMission.vibe,
+      focus: state.currentMission.focus,
+      difficulty: state.currentMission.difficulty,
+      blueprint: state.currentMission.blueprint,
+      iconMode: fallbackIconMode,
+      personality: state.currentMission.vibe,
+      learningPath: state.currentMission.learningPath || "guided-session"
+    });
   }
   const mission = state.currentMission;
   $("#promptTitle").textContent = mission.title;
@@ -648,6 +1766,40 @@ function renderMission() {
     <ul class="step-list">
       ${mission.constraints.map(item => `<li>${escapeHTML(item)}</li>`).join("")}
     </ul>
+
+    <div class="learning-dashboard">
+      <section class="learning-callout">
+        <h4>${escapeHTML(mission.learning.pathLabel || "Guided session")}</h4>
+        <p>${escapeHTML(mission.learning.pathGoal || "Practice one drawing skill at a time.")}</p>
+      </section>
+
+      ${renderLearningList("2-minute warmup", mission.learning.warmup)}
+
+      <div class="learning-block">
+        <h4>Draw this three ways</h4>
+        <div class="variation-grid">
+          ${mission.learning.variations.map(variation => `
+            <article class="variation-card">
+              <strong>${escapeHTML(variation.title)}</strong>
+              <p>${escapeHTML(variation.instruction)}</p>
+            </article>
+          `).join("")}
+        </div>
+      </div>
+
+      ${renderLearningList("Why this works", mission.learning.why, "why-block")}
+      <div class="learning-block mistake-block">
+        <h4>Common beginner mistake</h4>
+        <p><strong>Watch out:</strong> ${escapeHTML(mission.learning.mistake)}</p>
+        <p><strong>Fix:</strong> ${escapeHTML(mission.learning.fix)}</p>
+      </div>
+      ${renderLearningList("Procreate layer plan", mission.learning.layers)}
+      ${renderLearningList("Self-check after drawing", mission.learning.checkpoints)}
+      <div class="learning-block next-block">
+        <h4>Next best exercise</h4>
+        <p>${escapeHTML(mission.learning.nextExercise)}</p>
+      </div>
+    </div>
   `;
 
   renderBlueprintSteps();
@@ -657,12 +1809,72 @@ function renderMission() {
 
 function renderBlueprintSteps() {
   const mission = state.currentMission;
-  const steps = mission?.steps || [];
+  const steps = Array.isArray(mission?.steps) ? mission.steps : [];
   const profile = mission?.blueprint || getBlueprintProfile("bean blob", "shapes", "simple-shapes");
-  $("#blueprintDiagram").innerHTML = blueprintSVG(profile, mission?.subject || "bean blob", mission?.vibe || "cute");
-  $("#blueprintBase").textContent = profile.base;
-  $("#blueprintShapes").innerHTML = profile.shapes.map(shape => `<span>${escapeHTML(shape)}</span>`).join("");
-  $("#blueprintSteps").innerHTML = steps.map(step => `<li>${escapeHTML(step)}</li>`).join("");
+  const subject = mission?.subject || "bean blob";
+  const vibe = mission?.vibe || "cute";
+  const diagram = $("#blueprintDiagram");
+
+  try {
+    if (window.ShapeSproutBlueprint && typeof window.ShapeSproutBlueprint.render === "function") {
+      window.ShapeSproutBlueprint.render(diagram, { profile, subject, personality: vibe });
+    } else {
+      diagram.innerHTML = blueprintSVG(profile, subject, vibe);
+    }
+  } catch (error) {
+    console.warn("Blueprint renderer failed:", error);
+    diagram.innerHTML = `
+      <div class="blueprint-fallback" role="status">
+        <h3>Blueprint fallback</h3>
+        <p>This drawing still has a usable shape recipe. Try refreshing after the updated service worker activates.</p>
+      </div>
+    `;
+  }
+
+  $("#blueprintBase").textContent = profile.base || "simple shape construction";
+  $("#blueprintShapes").innerHTML = (Array.isArray(profile.shapes) ? profile.shapes : ["base shape", "face zone", "one prop"])
+    .map(shape => `<span>${escapeHTML(shape)}</span>`)
+    .join("");
+  $("#blueprintSteps").innerHTML = steps.length
+    ? steps.map(step => `<li>${escapeHTML(step)}</li>`).join("")
+    : `<li>Start with the biggest subject shape, place the face low, then add one readable prop or texture.</li>`;
+
+  const coach = $("#learningCoach");
+  if (coach && mission?.learning) {
+    const renderList = items => Array.isArray(items) ? items.map(item => `<li>${escapeHTML(item)}</li>`).join("") : "";
+    coach.innerHTML = `
+      <h3>Learning coach · ${escapeHTML(mission.learning.pathLabel || "Guided session")}</h3>
+      <p class="coach-goal">${escapeHTML(mission.learning.pathGoal || "Practice one clear drawing skill.")}</p>
+      <div class="coach-grid coach-grid-expanded">
+        <article>
+          <h4>2-minute warmup</h4>
+          <ol>${renderList(mission.learning.warmup)}</ol>
+        </article>
+        <article>
+          <h4>Why this works</h4>
+          <ul>${renderList(mission.learning.why)}</ul>
+        </article>
+        <article>
+          <h4>Common mistake + fix</h4>
+          <p><strong>Watch out:</strong> ${escapeHTML(mission.learning.mistake || "Do not add detail before the silhouette reads.")}</p>
+          <p><strong>Fix:</strong> ${escapeHTML(mission.learning.fix || "Simplify the outside shape first.")}</p>
+        </article>
+        <article>
+          <h4>Draw this three ways</h4>
+          <ul>${renderList(mission.learning.variations)}</ul>
+        </article>
+        <article>
+          <h4>Procreate layer plan</h4>
+          <ol>${renderList(mission.learning.layers)}</ol>
+        </article>
+        <article>
+          <h4>Self-check</h4>
+          <ul>${renderList(mission.learning.checkpoints)}</ul>
+          <p><strong>Next:</strong> ${escapeHTML(mission.learning.nextExercise || "Redraw it once with a clearer silhouette.")}</p>
+        </article>
+      </div>
+    `;
+  }
 }
 
 function renderDrills() {
@@ -744,7 +1956,26 @@ function missionAsText(mission = state.currentMission) {
     ...mission.constraints.map(rule => `- ${rule}`),
     "",
     "Steps:",
-    ...mission.steps.map((step, index) => `${index + 1}. ${step}`)
+    ...mission.steps.map((step, index) => `${index + 1}. ${step}`),
+    "",
+    "Warmup:",
+    ...(mission.learning?.warmup || []).map(step => `- ${step}`),
+    "",
+    "Draw this three ways:",
+    ...(mission.learning?.variations || []).map(item => `- ${item.title}: ${item.instruction}`),
+    "",
+    "Why this works:",
+    ...(mission.learning?.why || []).map(item => `- ${item}`),
+    "",
+    "Common mistake:",
+    `- ${mission.learning?.mistake || "Adding details before the silhouette reads."}`,
+    `- Fix: ${mission.learning?.fix || "Simplify the biggest shape first."}`,
+    "",
+    "Procreate layers:",
+    ...(mission.learning?.layers || []).map(step => `- ${step}`),
+    "",
+    "Self-check:",
+    ...(mission.learning?.checkpoints || []).map(step => `- ${step}`)
   ].join("\n");
 }
 
@@ -1059,6 +2290,18 @@ function useDrill(index) {
     createdAt: new Date().toISOString(),
     complete: false
   };
+  state.currentMission.blueprint = getBlueprintProfile("bean blob", "shapes", "simple-shapes", "cute");
+  state.currentMission.learning = buildLearningPlan({
+    subject: "practice drill",
+    family: "gym",
+    vibe: "practice",
+    focus: "simple-shapes",
+    difficulty: "seedling",
+    blueprint: state.currentMission.blueprint,
+    iconMode: false,
+    personality: "practice",
+    learningPath: "daily-practice"
+  });
   renderMission();
   switchTab("forge");
 }
@@ -1095,6 +2338,10 @@ function bindEvents() {
     if (action === "undo-sketch") undoSketch();
     if (action === "clear-sketch") clearSketch();
     if (action === "export-sketch") exportSketch();
+  });
+
+  $("#subjectFamily").addEventListener("change", () => {
+    populateSubjectChoices();
   });
 
   $("#importFile").addEventListener("change", event => importStash(event.target.files[0]));
@@ -1144,6 +2391,7 @@ function registerServiceWorker() {
 
 function init() {
   loadState();
+  populateSubjectChoices();
   state.currentMission = makeMission();
   renderMission();
   renderDrills();
