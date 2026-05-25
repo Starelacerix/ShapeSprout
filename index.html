@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFB299" />
+  <meta name="description" content="ShapeSprout Studio is an iPad-friendly Procreate companion for learning cute object characters, food mascots, blobs, icons, and logos." />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ShapeSprout" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png" />
+  <link rel="stylesheet" href="style.css" />
+
+  <meta property="og:title" content="ShapeSprout Studio" />
+  <meta property="og:description" content="A tiny drawing coach and prompt forge for cute characters, foods, shapes, blobs, logos, and icons." />
+  <meta property="og:image" content="assets/social-preview.png" />
+
+  <title>ShapeSprout Studio</title>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to drawing prompts</a>
+
+  <div class="app-shell" id="app">
+    <header class="hero-card">
+      <div class="brand-row">
+        <img class="app-icon" src="icons/icon-192.png" alt="" width="72" height="72" />
+        <div>
+          <p class="eyebrow">Procreate sidekick · beginner drawing lab</p>
+          <h1>ShapeSprout Studio</h1>
+          <p class="subtitle">Generate tiny drawing missions for object characters, food mascots, blobs, logos, and icons.</p>
+        </div>
+      </div>
+      <div class="hero-actions" aria-label="App status and actions">
+        <button class="ghost-button" id="installButton" hidden>Install</button>
+        <span id="onlineStatus" class="status-pill">Checking connection…</span>
+      </div>
+    </header>
+
+    <nav class="mode-tabs" aria-label="Studio sections">
+      <button class="tab is-active" data-tab="forge" aria-pressed="true">Prompt Forge</button>
+      <button class="tab" data-tab="blueprint" aria-pressed="false">Blueprint</button>
+      <button class="tab" data-tab="gym" aria-pressed="false">Shape Gym</button>
+      <button class="tab" data-tab="sketch" aria-pressed="false">Mini Pad</button>
+      <button class="tab" data-tab="stash" aria-pressed="false">Stash</button>
+    </nav>
+
+    <main id="workspace" class="workspace">
+      <section class="panel tool-panel" data-panel="forge">
+        <div class="section-heading">
+          <p class="eyebrow">Choose → generate → draw in Procreate</p>
+          <h2>Prompt Forge</h2>
+          <p>Pick a subject family and a skill goal. ShapeSprout will build a clear beginner mission with construction steps.</p>
+        </div>
+
+        <form class="control-grid" id="promptForm">
+          <label>
+            Subject family
+            <select id="subjectFamily">
+              <option value="objects">Objects</option>
+              <option value="foods">Foods</option>
+              <option value="shapes">Shapes & blobs</option>
+              <option value="icons">Logos & icons</option>
+              <option value="mixed">Surprise mix</option>
+            </select>
+          </label>
+          <label>
+            Vibe
+            <select id="vibe">
+              <option value="cute">Cute</option>
+              <option value="sleepy">Sleepy</option>
+              <option value="silly">Silly</option>
+              <option value="magical">Magical</option>
+              <option value="bold">Bold icon</option>
+            </select>
+          </label>
+          <label>
+            Skill focus
+            <select id="skillFocus">
+              <option value="simple-shapes">Simple shapes</option>
+              <option value="faces">Cute faces</option>
+              <option value="silhouette">Strong silhouette</option>
+              <option value="logo">Logo simplification</option>
+              <option value="expression">Expression & pose</option>
+            </select>
+          </label>
+          <label>
+            Difficulty
+            <select id="difficulty">
+              <option value="seedling">Seedling</option>
+              <option value="sprout">Sprout</option>
+              <option value="garden">Garden</option>
+            </select>
+          </label>
+        </form>
+
+        <div class="action-row">
+          <button class="primary-button" data-action="generate">Grow a prompt</button>
+          <button class="ghost-button" data-action="copy-prompt">Copy for Procreate</button>
+          <button class="ghost-button" data-action="share-prompt">Share</button>
+        </div>
+      </section>
+
+      <section class="panel result-panel" aria-live="polite">
+        <div class="section-heading compact">
+          <p class="eyebrow">Today’s tiny mission</p>
+          <h2 id="promptTitle">Draw a sleepy mug mascot</h2>
+        </div>
+        <article class="mission-card" id="missionCard"></article>
+        <div class="action-row">
+          <button class="primary-button" data-action="save-current">Save to stash</button>
+          <button class="ghost-button" data-action="complete-current">Mark drawn</button>
+          <button class="ghost-button" data-action="timer-toggle" id="timerButton">Start 15-min timer</button>
+        </div>
+        <p class="timer-readout" id="timerReadout">15:00 practice sprint</p>
+      </section>
+
+      <section class="panel" data-panel="blueprint" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Construction recipe</p>
+          <h2>Blueprint View</h2>
+          <p>Use this beside Procreate. Start simple, then redraw with clearer silhouette and personality.</p>
+        </div>
+        <div class="blueprint-layout">
+          <div class="blueprint-card" aria-label="Shape construction diagram">
+            <svg viewBox="0 0 400 320" role="img" aria-labelledby="svgTitle svgDesc">
+              <title id="svgTitle">Cute object character construction guide</title>
+              <desc id="svgDesc">A simple mascot built from a bean body, circular face area, two dot eyes, and a pencil-like prop.</desc>
+              <defs>
+                <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(79, 119, 145, .18)" stroke-width="1"/>
+                </pattern>
+              </defs>
+              <rect width="400" height="320" rx="28" fill="url(#grid)"/>
+              <ellipse cx="198" cy="176" rx="90" ry="112" fill="rgba(142,172,142,.25)" stroke="#4F778F" stroke-width="3" stroke-dasharray="9 9"/>
+              <circle cx="168" cy="152" r="10" fill="#2D2422"/>
+              <circle cx="230" cy="152" r="10" fill="#2D2422"/>
+              <path d="M184 182 Q200 200 218 182" fill="none" stroke="#2D2422" stroke-width="7" stroke-linecap="round"/>
+              <path d="M142 230 Q196 266 260 230" fill="none" stroke="#FFB299" stroke-width="8" stroke-linecap="round"/>
+              <path d="M110 72 L156 42 L184 86" fill="none" stroke="#FFD97D" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="108" cy="72" r="10" fill="#FFD97D"/>
+              <circle cx="184" cy="86" r="10" fill="#FFD97D"/>
+              <text x="32" y="42" class="svg-label">01 bean body</text>
+              <text x="260" y="82" class="svg-label">02 face low</text>
+              <text x="38" y="292" class="svg-label">03 prop = personality</text>
+            </svg>
+          </div>
+          <ol class="step-list" id="blueprintSteps"></ol>
+        </div>
+      </section>
+
+      <section class="panel" data-panel="gym" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Warmups before Procreate</p>
+          <h2>Shape Gym</h2>
+          <p>Quick drills for building confidence with cute characters, foods, blobs, and icon marks.</p>
+        </div>
+        <div class="drill-grid" id="drillGrid"></div>
+      </section>
+
+      <section class="panel" data-panel="sketch" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Tiny thumbnail pad</p>
+          <h2>Mini Pad</h2>
+          <p>This is only for quick thumbnails. Do the final drawing in Procreate.</p>
+        </div>
+        <div class="canvas-toolbar">
+          <label>Brush <input type="range" id="brushSize" min="2" max="28" value="8"></label>
+          <label>Ink
+            <select id="brushColor">
+              <option value="#2D2422">Cocoa</option>
+              <option value="#8EAC8E">Sage</option>
+              <option value="#FF8E72">Coral</option>
+              <option value="#4F778F">Blueprint</option>
+            </select>
+          </label>
+          <button class="ghost-button" data-action="undo-sketch">Undo</button>
+          <button class="ghost-button" data-action="clear-sketch">Clear</button>
+          <button class="ghost-button" data-action="export-sketch">Export PNG</button>
+        </div>
+        <canvas id="sketchCanvas" class="drawing-surface" width="900" height="560" aria-label="Mini sketch canvas"></canvas>
+      </section>
+
+      <section class="panel" data-panel="stash" hidden>
+        <div class="section-heading">
+          <p class="eyebrow">Saved drawing seeds</p>
+          <h2>Stash</h2>
+          <p>Save prompts you want to draw later, track completions, and export your local backup.</p>
+        </div>
+        <div class="action-row">
+          <button class="primary-button" data-action="export-stash">Export stash</button>
+          <label class="file-button">Import stash <input type="file" id="importFile" accept="application/json" hidden></label>
+          <button class="danger-button" data-action="clear-stash">Clear stash</button>
+        </div>
+        <div id="stashList" class="stash-list"></div>
+      </section>
+    </main>
+
+    <footer class="footer-note">
+      <p>Made to sit beside Procreate in iPad Split View. Your saved prompts stay on this device unless you export them.</p>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
